@@ -1,3 +1,18 @@
+struct inode_operations {
+	int             (*dirlink)(struct inode*, char*, uint);
+	struct inode*   (*dirlookup)(struct inode*, char*, uint*);
+	struct inode*   (*ialloc)(uint, short);
+	void            (*iinit)(int dev);
+	void            (*ilock)(struct inode*);
+	void            (*iput)(struct inode*);
+	void            (*iunlock)(struct inode*);
+	void            (*iunlockput)(struct inode*);
+	void            (*iupdate)(struct inode*);
+	int             (*readi)(struct inode*, char*, uint, uint);
+	void            (*stati)(struct inode*, struct stat*);
+	int             (*writei)(struct inode*, char*, uint, uint);
+};
+
 struct file {
   enum { FD_NONE, FD_PIPE, FD_INODE } type;
   int ref; // reference count
@@ -8,7 +23,6 @@ struct file {
   uint off;
 };
 
-
 // in-memory copy of an inode
 struct inode {
   uint dev;           // Device number
@@ -16,6 +30,7 @@ struct inode {
   int ref;            // Reference count
   struct sleeplock lock; // protects everything below here
   int valid;          // inode has been read from disk?
+  struct inode_operations *iops; // pointer to inode_operations
 
   short type;         // copy of disk inode
   short major;
