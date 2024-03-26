@@ -6,6 +6,8 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
+#include "ext2_fs.h"
+#include "fs.h"
 
 struct {
   struct spinlock lock;
@@ -407,6 +409,7 @@ forkret(void)
     first = 0;
     iinit(ROOTDEV);
     initlog(ROOTDEV);
+    ext2_iinit(EXT2DEV);
   }
 
   // Return to "caller", actually trapret (see allocproc).
