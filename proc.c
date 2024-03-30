@@ -408,12 +408,29 @@ forkret(void)
     // be run from main().
     first = 0;
     iinit(ROOTDEV);
+    //Implemented this in fs.c
+    // initmnt();
     initlog(ROOTDEV);
     ext2_iinit(EXT2DEV);
+    // Write this function
+    //access_est2();
   }
 
   // Return to "caller", actually trapret (see allocproc).
 }
+
+//access_ext2() {
+//    create an in memory folder say 
+//    "/mnt" 
+//    By simply allocating an inode and read dir of "/"
+//    Add an entry in "/"'s data blocks in memory
+//    and make the inode of "/mnt" refer to the inode of "/"
+//    on ext2.img
+//
+//    As a resul of which during namex(), when you cross "/mnt"
+//    it would end up in inode of "/" of ext2.img
+//
+//}
 
 // Atomically release lock and sleep on chan.
 // Reacquires lock when awakened.

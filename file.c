@@ -75,6 +75,7 @@ fileclose(struct file *f)
   else if(ff.type == FD_INODE){
     begin_op();
     iput(ff.ip);
+    // instead of iput use f->iops->iput(ff.ip)
     end_op();
   }
 }

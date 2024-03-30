@@ -179,6 +179,13 @@ struct {
   struct inode inode[NINODE];
 } icache;
 
+//void initmnt() {
+//    inode *ip = iget(ROOTDEV, ROOTINO); // Gives inode of the root on fs.img
+//    reading data blocks of "ip" in memory
+//    newino = iget(2,0); i.e gives inode of device number 2 and number 0  // Create an in memory inode
+//    add a directory entry as a child of "ip" for "newino /mnt"    // This will require a little bit of code
+//}
+
 void
 iinit(int dev)
 {
@@ -259,6 +266,10 @@ iupdate(struct inode *ip)
 // Find the inode with number inum on device dev
 // and return the in-memory copy. Does not lock
 // the inode and does not read it from disk.
+// This function may be used to set the function pointer
+// The pointers of inode operations for the particular file
+// shud get set when the file is first accessed
+// Proper place to look for that is namei
 static struct inode*
 iget(uint dev, uint inum)
 {
@@ -287,6 +298,8 @@ iget(uint dev, uint inum)
   ip->inum = inum;
   ip->ref = 1;
   ip->valid = 0;
+  // Will also have to do the below line
+  //ip->i_ops = default_iops;
   release(&icache.lock);
 
   return ip;
@@ -552,8 +565,11 @@ dirlookup(struct inode *dp, char *name, uint *poff)
     panic("dirlookup not DIR");
 
   for(off = 0; off < dp->size; off += sizeof(de)){
+    // If the filename is /mnt we don't need to call readi coz we want to access the in memory data structure
     if(readi(dp, (char*)&de, off, sizeof(de)) != sizeof(de))
       panic("dirlookup read");
+    //    if(name == "/mnt")
+//        dp->dev = 2;          // coz /mnt is on 2nd disk
     if(de.inum == 0)
       continue;
     if(namecmp(name, de.name) == 0){
@@ -649,6 +665,10 @@ namex(char *path, int nameiparent, char *name)
 
   if(*path == '/')
     ip = iget(ROOTDEV, ROOTINO);
+  else if (strncmp(path, "/mnt", 4) == 0) {
+      ip = iget(EXT2DEV, EXT2INO);
+      path += 4;
+  }
   else
     ip = idup(myproc()->cwd);
 
