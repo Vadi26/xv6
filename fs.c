@@ -26,7 +26,8 @@
 static void itrunc(struct inode*);
 // there should be one superblock per disk device, but we run with
 // only one device
-struct superblock sb; 
+struct superblock sb;
+struct ext2_superblock exs;
 
 // Read the super block.
 void
@@ -47,6 +48,7 @@ ext2_readsb(int dev, struct ext2_superblock *sb)
   bp = bread(dev, 0);
   memmove(sb, bp->data+1024, sizeof(*sb));
   brelse(bp);
+  cprintf("OKAY EXT2 readsb done ! \n");
 }
 
 // Zero a block.
@@ -203,11 +205,9 @@ iinit(int dev)
           sb.bmapstart);
 }
 
-struct ext2_superblock exs;
-
 void ext2_iinit(int dev){
 	ext2_readsb(dev, &exs);
-  cprintf("sb: magic %x icount = %d bcount = %d\n log block size  %d inodes per group  %d first inode %d \
+  cprintf("ext2sb: magic %x icount = %d bcount = %d\n log block size  %d inodes per group  %d first inode %d \
 	inode size %d\n", exs.s_magic, exs.s_inodes_count, exs.s_blocks_count, \
 	exs.s_log_block_size, exs.s_inodes_per_group, exs.s_first_ino, exs.s_inode_size);
 
@@ -298,6 +298,10 @@ iget(uint dev, uint inum)
   ip->inum = inum;
   ip->ref = 1;
   ip->valid = 0;
+  if (dev == EXT2DEV) {
+      cprintf("INSIDE EXT2DEV if \n");
+      ip->iops = &ext2_inode_ops;
+  }
   // Will also have to do the below line
   //ip->i_ops = default_iops;
   release(&icache.lock);
@@ -568,8 +572,8 @@ dirlookup(struct inode *dp, char *name, uint *poff)
     // If the filename is /mnt we don't need to call readi coz we want to access the in memory data structure
     if(readi(dp, (char*)&de, off, sizeof(de)) != sizeof(de))
       panic("dirlookup read");
-    //    if(name == "/mnt")
-//        dp->dev = 2;          // coz /mnt is on 2nd disk
+    if(strncmp(name,"/mnt",4) == 0)
+        dp->dev = 2;          // coz /mnt is on 2nd disk
     if(de.inum == 0)
       continue;
     if(namecmp(name, de.name) == 0){
@@ -630,11 +634,15 @@ dirlink(struct inode *dp, char *name, uint inum)
 //   skipelem("", name) = skipelem("////", name) = 0
 //
 static char*
-skipelem(char *path, char *name)
+skipelem(char *path, char *name, uint dev)
 {
   char *s;
-  int len;
-
+  int len, dirlen;
+  
+  if(dev == EXT2DEV)
+      dirlen = EXT2_NAME_LEN;
+  else
+      dirlen = DIRSIZ;
   while(*path == '/')
     path++;
   if(*path == 0)
@@ -644,7 +652,7 @@ skipelem(char *path, char *name)
     path++;
   len = path - s;
   if(len >= DIRSIZ)
-    memmove(name, s, DIRSIZ);
+    memmove(name, s, dirlen);
   else {
     memmove(name, s, len);
     name[len] = 0;
@@ -663,16 +671,17 @@ namex(char *path, int nameiparent, char *name)
 {
   struct inode *ip, *next;
 
-  if(*path == '/')
-    ip = iget(ROOTDEV, ROOTINO);
-  else if (strncmp(path, "/mnt", 4) == 0) {
-      ip = iget(EXT2DEV, EXT2INO);
-      path += 4;
+  if(strncmp(path, "/mnt", 4) == 0){
+    ip = iget(EXT2DEV, EXT2INO);
+    path += 4;
+  }
+  else if (*path == '/') {
+      ip = iget(ROOTDEV, ROOTINO);
   }
   else
     ip = idup(myproc()->cwd);
 
-  while((path = skipelem(path, name)) != 0){
+  while((path = skipelem(path, name, ip->dev)) != 0){
     ilock(ip);
     if(ip->type != T_DIR){
       iunlockput(ip);
@@ -700,7 +709,7 @@ namex(char *path, int nameiparent, char *name)
 struct inode*
 namei(char *path)
 {
-  char name[DIRSIZ];
+ char name[DIRSIZ];
   return namex(path, 0, name);
 }
 

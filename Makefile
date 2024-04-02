@@ -2,6 +2,7 @@ OBJS = \
 	bio.o\
 	console.o\
 	exec.o\
+	ext2_fs.o\
 	file.o\
 	fs.o\
 	ide.o\
@@ -219,7 +220,7 @@ QEMUGDB = $(shell if $(QEMU) -help | grep -q '^-gdb'; \
 ifndef CPUS
 CPUS := 2
 endif
-QEMUOPTS = -drive file=fs.img,index=1,media=disk,format=raw,if=ide -drive file=xv6.img,index=0,media=disk,format=raw,if=ide -drive file=ext2.img,index=2,media=disk,format=raw,id=ide  -smp $(CPUS) -m 512 $(QEMUEXTRA)
+QEMUOPTS = -drive file=ext2.img,index=2,media=disk,format=raw,id=ide -drive file=fs.img,index=1,media=disk,format=raw,if=ide -drive file=xv6.img,index=0,media=disk,format=raw,if=ide -smp $(CPUS) -m 512 $(QEMUEXTRA)
 
 qemu: fs.img xv6.img
 	$(QEMU) -serial mon:stdio $(QEMUOPTS)

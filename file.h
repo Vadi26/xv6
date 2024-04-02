@@ -1,16 +1,16 @@
 struct inode_operations {
-	int             (*dirlink)(struct inode*, char*, uint);
-	struct inode*   (*dirlookup)(struct inode*, char*, uint*);
-	struct inode*   (*ialloc)(uint, short);
-	void            (*iinit)(int dev);
-	void            (*ilock)(struct inode*);
-	void            (*iput)(struct inode*);
-	void            (*iunlock)(struct inode*);
-	void            (*iunlockput)(struct inode*);
-	void            (*iupdate)(struct inode*);
-	int             (*readi)(struct inode*, char*, uint, uint);
-	void            (*stati)(struct inode*, struct stat*);
-	int             (*writei)(struct inode*, char*, uint, uint);
+	int             (*dirlinK)(struct inode*, char*, uint);
+	struct inode*   (*dirlookuP)(struct inode*, char*, uint*);
+	struct inode*   (*ialloC)(uint, short);
+	void            (*iiniT)(int);
+	void            (*ilocK)(struct inode*);
+	void            (*ipuT)(struct inode*);
+	void            (*iunlocK)(struct inode*);
+	void            (*iunlockpuT)(struct inode*);
+	void            (*iupdatE)(struct inode*);
+	int             (*readI)(struct inode*, char*, uint, uint);
+	void            (*statI)(struct inode*, struct stat*);
+	int             (*writeI)(struct inode*, char*, uint, uint);
 };
 
 struct file {

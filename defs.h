@@ -52,7 +52,7 @@ struct inode*   nameiparent(char*, char*);
 int             readi(struct inode*, char*, uint, uint);
 void            stati(struct inode*, struct stat*);
 int             writei(struct inode*, char*, uint, uint);
-void            ext2_iinit(int dev);
+//void            ext2_iinit(int dev);
 
 // ide.c
 void            ideinit(void);
@@ -186,6 +186,20 @@ void            switchuvm(struct proc*);
 void            switchkvm(void);
 int             copyout(pde_t*, uint, void*, uint);
 void            clearpteu(pde_t *pgdir, char *uva);
+
+// ext2_fs.c
+int ext2_dirlink(struct inode *ino, char *name, uint inum);
+struct inode *ext2_dirlookup(struct inode *, char *, uint *);
+struct inode *ext2_ialloc(uint, short);
+void ext2_iinit(int);
+void ext2_ilock(struct inode *);
+void ext2_iput(struct inode *);
+void ext2_iunlock(struct inode *);
+void ext2_iunlockput(struct inode *);
+void ext2_iupdate(struct inode *);
+int ext2_readi(struct inode *, char *, uint, uint);
+void ext2_stati(struct inode *, struct stat *);
+int ext2_writei(struct inode *, char *name, uint, uint);
 
 // number of elements in fixed-size array
 #define NELEM(x) (sizeof(x)/sizeof((x)[0]))

@@ -1798,6 +1798,6 @@ main(int argc, char *argv[])
   uio();
 
   exectest();
-
+  opentest();
   exit();
 }
