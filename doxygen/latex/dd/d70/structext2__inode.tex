@@ -1,0 +1,350 @@
+\hypertarget{structext2__inode}{}\doxysection{ext2\+\_\+inode Struct Reference}
+\label{structext2__inode}\index{ext2\_inode@{ext2\_inode}}
+
+
+{\ttfamily \#include $<$ext2\+\_\+fs.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a5a29d5807b8c05cdb5b5ccb1c52bb35b}{i\+\_\+mode}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_ae3ae19857a9008daf3f89a111f8c3cf8}{i\+\_\+uid}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_af09d8166d5f28e624c47b55a8c7aa124}{i\+\_\+size}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a9d0f74134763719dc858d4daacb79df2}{i\+\_\+atime}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a149b078e7ed46ed7281a94d1be070c35}{i\+\_\+ctime}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a1176b87ce37418f0fb0e2507b018df35}{i\+\_\+mtime}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_aa19f879d882d7d384158a5f863633c7c}{i\+\_\+dtime}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_af6c78c0faac889332b76c1583d92dd09}{i\+\_\+gid}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a552049c860e1eb17a628c5bfa0bd2f20}{i\+\_\+links\+\_\+count}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a9ac991cd8af107033b28badfacf65a8e}{i\+\_\+blocks}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a64f6b42f9a4c0914701e1768dc8222e0}{i\+\_\+flags}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_afdb304e9dce0a60cb0e4c00cf6e13877}{l\_i\_reserved1}}\\
+\>\} \mbox{\hyperlink{structext2__inode_a9eba2e70043523039f7751158ebb9170}{linux1}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a394d818ff2530753e88ad31091bc0da4}{h\_i\_translator}}\\
+\>\} \mbox{\hyperlink{structext2__inode_a17a7e777b1ce816a3caf0fc9295e96c2}{hurd1}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_abe740575cb20285b931dded1a849bc5c}{m\_i\_reserved1}}\\
+\>\} \mbox{\hyperlink{structext2__inode_ad15b609c96182d728a489eb1b45b17ea}{masix1}}\\
+\} \mbox{\hyperlink{structext2__inode_a58d88f269adfdcec6050a8c10241cec7}{osd1}}\\
+
+\end{tabbing}\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a98a403da880295d7fe0ccffde0939c6e}{i\+\_\+block}} \mbox{[}\mbox{\hyperlink{ext2__fs_8h_add1194efd19a37c1239a967ed68b6614}{EXT2\+\_\+\+N\+\_\+\+BLOCKS}}\mbox{]}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_ad89802aa63721a82fffb2eda2eb6f483}{i\+\_\+generation}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a87aad06eb340d0720181109584fe7059}{i\+\_\+file\+\_\+acl}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_af90390c04d8c0d5d7baf53eb8640c381}{i\+\_\+dir\+\_\+acl}}
+\item 
+\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a8aae5d928f8607c5ae7b7358e3a6911e}{i\+\_\+faddr}}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+union \{\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_ac44e6f2410ab166d1b7477a7380fdbe2}{l\_i\_frag}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_ad7ea1b4258ad65bf7bfd066cf0ec4247}{l\_i\_fsize}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a74c5e8602729c4c2b4615598041c5d79}{i\_pad1}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a18176f856ad8a7262056bbea05e561f0}{l\_i\_uid\_high}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a50eef4e99ea7739a54be79c9b4f8a4fe}{l\_i\_gid\_high}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_add9c6b361aadc4c7bb7d2792d9b7b799}{l\_i\_reserved2}}\\
+\>\} \mbox{\hyperlink{structext2__inode_a21517b4f7f53a8480f6f391a7eac1947}{linux2}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} \mbox{\hyperlink{structext2__inode_a7fa3bb8b8689aaa3b1988f7483a5a5ee}{h\_i\_frag}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} \mbox{\hyperlink{structext2__inode_a9e52d1f5963c590945d06923a4554f79}{h\_i\_fsize}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a5c1529f6effe9772d82d0fffbef1ae62}{h\_i\_mode\_high}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a760052dc3f82c2c4455ce134713434c7}{h\_i\_uid\_high}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_ab860b7e077faa190dd5776e7f1ea5d2c}{h\_i\_gid\_high}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a9f8b6eea4b625454db64b49a4d08e9b2}{h\_i\_author}}\\
+\>\} \mbox{\hyperlink{structext2__inode_a52dbdd1b5154b0d7b4baec68786ab7b5}{hurd2}}\\
+\>struct \{\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a08882253857ceb1286d6c7c1a5d380ea}{m\_i\_frag}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a1b99c5d53fac5856e50518ac08b41398}{m\_i\_fsize}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} \mbox{\hyperlink{structext2__inode_a2b86038b55423a6aac39984a45c50540}{m\_pad1}}\\
+\>\>\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{structext2__inode_a1b7303c11a53c494ce6c77b8d127794c}{m\_i\_reserved2}} \mbox{[}2\mbox{]}\\
+\>\} \mbox{\hyperlink{structext2__inode_a2046181b1c5e7c2deedcc6c7c8269801}{masix2}}\\
+\} \mbox{\hyperlink{structext2__inode_a6ac1e1416230b1ab94197a009b1db709}{osd2}}\\
+
+\end{tabbing}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structext2__inode_a9f8b6eea4b625454db64b49a4d08e9b2}\label{structext2__inode_a9f8b6eea4b625454db64b49a4d08e9b2}} 
+\index{ext2\_inode@{ext2\_inode}!h\_i\_author@{h\_i\_author}}
+\index{h\_i\_author@{h\_i\_author}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{h\_i\_author}{h\_i\_author}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::h\+\_\+i\+\_\+author}
+
+\mbox{\Hypertarget{structext2__inode_a7fa3bb8b8689aaa3b1988f7483a5a5ee}\label{structext2__inode_a7fa3bb8b8689aaa3b1988f7483a5a5ee}} 
+\index{ext2\_inode@{ext2\_inode}!h\_i\_frag@{h\_i\_frag}}
+\index{h\_i\_frag@{h\_i\_frag}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{h\_i\_frag}{h\_i\_frag}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} ext2\+\_\+inode\+::h\+\_\+i\+\_\+frag}
+
+\mbox{\Hypertarget{structext2__inode_a9e52d1f5963c590945d06923a4554f79}\label{structext2__inode_a9e52d1f5963c590945d06923a4554f79}} 
+\index{ext2\_inode@{ext2\_inode}!h\_i\_fsize@{h\_i\_fsize}}
+\index{h\_i\_fsize@{h\_i\_fsize}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{h\_i\_fsize}{h\_i\_fsize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}} ext2\+\_\+inode\+::h\+\_\+i\+\_\+fsize}
+
+\mbox{\Hypertarget{structext2__inode_ab860b7e077faa190dd5776e7f1ea5d2c}\label{structext2__inode_ab860b7e077faa190dd5776e7f1ea5d2c}} 
+\index{ext2\_inode@{ext2\_inode}!h\_i\_gid\_high@{h\_i\_gid\_high}}
+\index{h\_i\_gid\_high@{h\_i\_gid\_high}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{h\_i\_gid\_high}{h\_i\_gid\_high}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::h\+\_\+i\+\_\+gid\+\_\+high}
+
+\mbox{\Hypertarget{structext2__inode_a5c1529f6effe9772d82d0fffbef1ae62}\label{structext2__inode_a5c1529f6effe9772d82d0fffbef1ae62}} 
+\index{ext2\_inode@{ext2\_inode}!h\_i\_mode\_high@{h\_i\_mode\_high}}
+\index{h\_i\_mode\_high@{h\_i\_mode\_high}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{h\_i\_mode\_high}{h\_i\_mode\_high}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::h\+\_\+i\+\_\+mode\+\_\+high}
+
+\mbox{\Hypertarget{structext2__inode_a394d818ff2530753e88ad31091bc0da4}\label{structext2__inode_a394d818ff2530753e88ad31091bc0da4}} 
+\index{ext2\_inode@{ext2\_inode}!h\_i\_translator@{h\_i\_translator}}
+\index{h\_i\_translator@{h\_i\_translator}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{h\_i\_translator}{h\_i\_translator}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::h\+\_\+i\+\_\+translator}
+
+\mbox{\Hypertarget{structext2__inode_a760052dc3f82c2c4455ce134713434c7}\label{structext2__inode_a760052dc3f82c2c4455ce134713434c7}} 
+\index{ext2\_inode@{ext2\_inode}!h\_i\_uid\_high@{h\_i\_uid\_high}}
+\index{h\_i\_uid\_high@{h\_i\_uid\_high}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{h\_i\_uid\_high}{h\_i\_uid\_high}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::h\+\_\+i\+\_\+uid\+\_\+high}
+
+\mbox{\Hypertarget{structext2__inode_a17a7e777b1ce816a3caf0fc9295e96c2}\label{structext2__inode_a17a7e777b1ce816a3caf0fc9295e96c2}} 
+\index{ext2\_inode@{ext2\_inode}!hurd1@{hurd1}}
+\index{hurd1@{hurd1}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct \{ ... \}  ext2\+\_\+inode\+::hurd1}
+
+\mbox{\Hypertarget{structext2__inode_a52dbdd1b5154b0d7b4baec68786ab7b5}\label{structext2__inode_a52dbdd1b5154b0d7b4baec68786ab7b5}} 
+\index{ext2\_inode@{ext2\_inode}!hurd2@{hurd2}}
+\index{hurd2@{hurd2}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct \{ ... \}  ext2\+\_\+inode\+::hurd2}
+
+\mbox{\Hypertarget{structext2__inode_a9d0f74134763719dc858d4daacb79df2}\label{structext2__inode_a9d0f74134763719dc858d4daacb79df2}} 
+\index{ext2\_inode@{ext2\_inode}!i\_atime@{i\_atime}}
+\index{i\_atime@{i\_atime}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_atime}{i\_atime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+atime}
+
+\mbox{\Hypertarget{structext2__inode_a98a403da880295d7fe0ccffde0939c6e}\label{structext2__inode_a98a403da880295d7fe0ccffde0939c6e}} 
+\index{ext2\_inode@{ext2\_inode}!i\_block@{i\_block}}
+\index{i\_block@{i\_block}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_block}{i\_block}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+block\mbox{[}\mbox{\hyperlink{ext2__fs_8h_add1194efd19a37c1239a967ed68b6614}{EXT2\+\_\+\+N\+\_\+\+BLOCKS}}\mbox{]}}
+
+\mbox{\Hypertarget{structext2__inode_a9ac991cd8af107033b28badfacf65a8e}\label{structext2__inode_a9ac991cd8af107033b28badfacf65a8e}} 
+\index{ext2\_inode@{ext2\_inode}!i\_blocks@{i\_blocks}}
+\index{i\_blocks@{i\_blocks}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_blocks}{i\_blocks}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+blocks}
+
+\mbox{\Hypertarget{structext2__inode_a149b078e7ed46ed7281a94d1be070c35}\label{structext2__inode_a149b078e7ed46ed7281a94d1be070c35}} 
+\index{ext2\_inode@{ext2\_inode}!i\_ctime@{i\_ctime}}
+\index{i\_ctime@{i\_ctime}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_ctime}{i\_ctime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+ctime}
+
+\mbox{\Hypertarget{structext2__inode_af90390c04d8c0d5d7baf53eb8640c381}\label{structext2__inode_af90390c04d8c0d5d7baf53eb8640c381}} 
+\index{ext2\_inode@{ext2\_inode}!i\_dir\_acl@{i\_dir\_acl}}
+\index{i\_dir\_acl@{i\_dir\_acl}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_dir\_acl}{i\_dir\_acl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+dir\+\_\+acl}
+
+\mbox{\Hypertarget{structext2__inode_aa19f879d882d7d384158a5f863633c7c}\label{structext2__inode_aa19f879d882d7d384158a5f863633c7c}} 
+\index{ext2\_inode@{ext2\_inode}!i\_dtime@{i\_dtime}}
+\index{i\_dtime@{i\_dtime}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_dtime}{i\_dtime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+dtime}
+
+\mbox{\Hypertarget{structext2__inode_a8aae5d928f8607c5ae7b7358e3a6911e}\label{structext2__inode_a8aae5d928f8607c5ae7b7358e3a6911e}} 
+\index{ext2\_inode@{ext2\_inode}!i\_faddr@{i\_faddr}}
+\index{i\_faddr@{i\_faddr}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_faddr}{i\_faddr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+faddr}
+
+\mbox{\Hypertarget{structext2__inode_a87aad06eb340d0720181109584fe7059}\label{structext2__inode_a87aad06eb340d0720181109584fe7059}} 
+\index{ext2\_inode@{ext2\_inode}!i\_file\_acl@{i\_file\_acl}}
+\index{i\_file\_acl@{i\_file\_acl}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_file\_acl}{i\_file\_acl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+file\+\_\+acl}
+
+\mbox{\Hypertarget{structext2__inode_a64f6b42f9a4c0914701e1768dc8222e0}\label{structext2__inode_a64f6b42f9a4c0914701e1768dc8222e0}} 
+\index{ext2\_inode@{ext2\_inode}!i\_flags@{i\_flags}}
+\index{i\_flags@{i\_flags}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_flags}{i\_flags}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+flags}
+
+\mbox{\Hypertarget{structext2__inode_ad89802aa63721a82fffb2eda2eb6f483}\label{structext2__inode_ad89802aa63721a82fffb2eda2eb6f483}} 
+\index{ext2\_inode@{ext2\_inode}!i\_generation@{i\_generation}}
+\index{i\_generation@{i\_generation}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_generation}{i\_generation}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+generation}
+
+\mbox{\Hypertarget{structext2__inode_af6c78c0faac889332b76c1583d92dd09}\label{structext2__inode_af6c78c0faac889332b76c1583d92dd09}} 
+\index{ext2\_inode@{ext2\_inode}!i\_gid@{i\_gid}}
+\index{i\_gid@{i\_gid}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_gid}{i\_gid}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::i\+\_\+gid}
+
+\mbox{\Hypertarget{structext2__inode_a552049c860e1eb17a628c5bfa0bd2f20}\label{structext2__inode_a552049c860e1eb17a628c5bfa0bd2f20}} 
+\index{ext2\_inode@{ext2\_inode}!i\_links\_count@{i\_links\_count}}
+\index{i\_links\_count@{i\_links\_count}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_links\_count}{i\_links\_count}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::i\+\_\+links\+\_\+count}
+
+\mbox{\Hypertarget{structext2__inode_a5a29d5807b8c05cdb5b5ccb1c52bb35b}\label{structext2__inode_a5a29d5807b8c05cdb5b5ccb1c52bb35b}} 
+\index{ext2\_inode@{ext2\_inode}!i\_mode@{i\_mode}}
+\index{i\_mode@{i\_mode}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_mode}{i\_mode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::i\+\_\+mode}
+
+\mbox{\Hypertarget{structext2__inode_a1176b87ce37418f0fb0e2507b018df35}\label{structext2__inode_a1176b87ce37418f0fb0e2507b018df35}} 
+\index{ext2\_inode@{ext2\_inode}!i\_mtime@{i\_mtime}}
+\index{i\_mtime@{i\_mtime}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_mtime}{i\_mtime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+mtime}
+
+\mbox{\Hypertarget{structext2__inode_a74c5e8602729c4c2b4615598041c5d79}\label{structext2__inode_a74c5e8602729c4c2b4615598041c5d79}} 
+\index{ext2\_inode@{ext2\_inode}!i\_pad1@{i\_pad1}}
+\index{i\_pad1@{i\_pad1}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_pad1}{i\_pad1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::i\+\_\+pad1}
+
+\mbox{\Hypertarget{structext2__inode_af09d8166d5f28e624c47b55a8c7aa124}\label{structext2__inode_af09d8166d5f28e624c47b55a8c7aa124}} 
+\index{ext2\_inode@{ext2\_inode}!i\_size@{i\_size}}
+\index{i\_size@{i\_size}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_size}{i\_size}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::i\+\_\+size}
+
+\mbox{\Hypertarget{structext2__inode_ae3ae19857a9008daf3f89a111f8c3cf8}\label{structext2__inode_ae3ae19857a9008daf3f89a111f8c3cf8}} 
+\index{ext2\_inode@{ext2\_inode}!i\_uid@{i\_uid}}
+\index{i\_uid@{i\_uid}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{i\_uid}{i\_uid}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::i\+\_\+uid}
+
+\mbox{\Hypertarget{structext2__inode_ac44e6f2410ab166d1b7477a7380fdbe2}\label{structext2__inode_ac44e6f2410ab166d1b7477a7380fdbe2}} 
+\index{ext2\_inode@{ext2\_inode}!l\_i\_frag@{l\_i\_frag}}
+\index{l\_i\_frag@{l\_i\_frag}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{l\_i\_frag}{l\_i\_frag}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::l\+\_\+i\+\_\+frag}
+
+\mbox{\Hypertarget{structext2__inode_ad7ea1b4258ad65bf7bfd066cf0ec4247}\label{structext2__inode_ad7ea1b4258ad65bf7bfd066cf0ec4247}} 
+\index{ext2\_inode@{ext2\_inode}!l\_i\_fsize@{l\_i\_fsize}}
+\index{l\_i\_fsize@{l\_i\_fsize}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{l\_i\_fsize}{l\_i\_fsize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::l\+\_\+i\+\_\+fsize}
+
+\mbox{\Hypertarget{structext2__inode_a50eef4e99ea7739a54be79c9b4f8a4fe}\label{structext2__inode_a50eef4e99ea7739a54be79c9b4f8a4fe}} 
+\index{ext2\_inode@{ext2\_inode}!l\_i\_gid\_high@{l\_i\_gid\_high}}
+\index{l\_i\_gid\_high@{l\_i\_gid\_high}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{l\_i\_gid\_high}{l\_i\_gid\_high}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::l\+\_\+i\+\_\+gid\+\_\+high}
+
+\mbox{\Hypertarget{structext2__inode_afdb304e9dce0a60cb0e4c00cf6e13877}\label{structext2__inode_afdb304e9dce0a60cb0e4c00cf6e13877}} 
+\index{ext2\_inode@{ext2\_inode}!l\_i\_reserved1@{l\_i\_reserved1}}
+\index{l\_i\_reserved1@{l\_i\_reserved1}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{l\_i\_reserved1}{l\_i\_reserved1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::l\+\_\+i\+\_\+reserved1}
+
+\mbox{\Hypertarget{structext2__inode_add9c6b361aadc4c7bb7d2792d9b7b799}\label{structext2__inode_add9c6b361aadc4c7bb7d2792d9b7b799}} 
+\index{ext2\_inode@{ext2\_inode}!l\_i\_reserved2@{l\_i\_reserved2}}
+\index{l\_i\_reserved2@{l\_i\_reserved2}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{l\_i\_reserved2}{l\_i\_reserved2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::l\+\_\+i\+\_\+reserved2}
+
+\mbox{\Hypertarget{structext2__inode_a18176f856ad8a7262056bbea05e561f0}\label{structext2__inode_a18176f856ad8a7262056bbea05e561f0}} 
+\index{ext2\_inode@{ext2\_inode}!l\_i\_uid\_high@{l\_i\_uid\_high}}
+\index{l\_i\_uid\_high@{l\_i\_uid\_high}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{l\_i\_uid\_high}{l\_i\_uid\_high}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::l\+\_\+i\+\_\+uid\+\_\+high}
+
+\mbox{\Hypertarget{structext2__inode_a9eba2e70043523039f7751158ebb9170}\label{structext2__inode_a9eba2e70043523039f7751158ebb9170}} 
+\index{ext2\_inode@{ext2\_inode}!linux1@{linux1}}
+\index{linux1@{linux1}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct \{ ... \}  ext2\+\_\+inode\+::linux1}
+
+\mbox{\Hypertarget{structext2__inode_a21517b4f7f53a8480f6f391a7eac1947}\label{structext2__inode_a21517b4f7f53a8480f6f391a7eac1947}} 
+\index{ext2\_inode@{ext2\_inode}!linux2@{linux2}}
+\index{linux2@{linux2}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct \{ ... \}  ext2\+\_\+inode\+::linux2}
+
+\mbox{\Hypertarget{structext2__inode_a08882253857ceb1286d6c7c1a5d380ea}\label{structext2__inode_a08882253857ceb1286d6c7c1a5d380ea}} 
+\index{ext2\_inode@{ext2\_inode}!m\_i\_frag@{m\_i\_frag}}
+\index{m\_i\_frag@{m\_i\_frag}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{m\_i\_frag}{m\_i\_frag}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::m\+\_\+i\+\_\+frag}
+
+\mbox{\Hypertarget{structext2__inode_a1b99c5d53fac5856e50518ac08b41398}\label{structext2__inode_a1b99c5d53fac5856e50518ac08b41398}} 
+\index{ext2\_inode@{ext2\_inode}!m\_i\_fsize@{m\_i\_fsize}}
+\index{m\_i\_fsize@{m\_i\_fsize}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{m\_i\_fsize}{m\_i\_fsize}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::m\+\_\+i\+\_\+fsize}
+
+\mbox{\Hypertarget{structext2__inode_abe740575cb20285b931dded1a849bc5c}\label{structext2__inode_abe740575cb20285b931dded1a849bc5c}} 
+\index{ext2\_inode@{ext2\_inode}!m\_i\_reserved1@{m\_i\_reserved1}}
+\index{m\_i\_reserved1@{m\_i\_reserved1}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{m\_i\_reserved1}{m\_i\_reserved1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::m\+\_\+i\+\_\+reserved1}
+
+\mbox{\Hypertarget{structext2__inode_a1b7303c11a53c494ce6c77b8d127794c}\label{structext2__inode_a1b7303c11a53c494ce6c77b8d127794c}} 
+\index{ext2\_inode@{ext2\_inode}!m\_i\_reserved2@{m\_i\_reserved2}}
+\index{m\_i\_reserved2@{m\_i\_reserved2}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{m\_i\_reserved2}{m\_i\_reserved2}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} ext2\+\_\+inode\+::m\+\_\+i\+\_\+reserved2\mbox{[}2\mbox{]}}
+
+\mbox{\Hypertarget{structext2__inode_a2b86038b55423a6aac39984a45c50540}\label{structext2__inode_a2b86038b55423a6aac39984a45c50540}} 
+\index{ext2\_inode@{ext2\_inode}!m\_pad1@{m\_pad1}}
+\index{m\_pad1@{m\_pad1}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{m\_pad1}{m\_pad1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}} ext2\+\_\+inode\+::m\+\_\+pad1}
+
+\mbox{\Hypertarget{structext2__inode_ad15b609c96182d728a489eb1b45b17ea}\label{structext2__inode_ad15b609c96182d728a489eb1b45b17ea}} 
+\index{ext2\_inode@{ext2\_inode}!masix1@{masix1}}
+\index{masix1@{masix1}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct \{ ... \}  ext2\+\_\+inode\+::masix1}
+
+\mbox{\Hypertarget{structext2__inode_a2046181b1c5e7c2deedcc6c7c8269801}\label{structext2__inode_a2046181b1c5e7c2deedcc6c7c8269801}} 
+\index{ext2\_inode@{ext2\_inode}!masix2@{masix2}}
+\index{masix2@{masix2}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily struct \{ ... \}  ext2\+\_\+inode\+::masix2}
+
+\mbox{\Hypertarget{structext2__inode_a58d88f269adfdcec6050a8c10241cec7}\label{structext2__inode_a58d88f269adfdcec6050a8c10241cec7}} 
+\index{ext2\_inode@{ext2\_inode}!osd1@{osd1}}
+\index{osd1@{osd1}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union \{ ... \}  ext2\+\_\+inode\+::osd1}
+
+\mbox{\Hypertarget{structext2__inode_a6ac1e1416230b1ab94197a009b1db709}\label{structext2__inode_a6ac1e1416230b1ab94197a009b1db709}} 
+\index{ext2\_inode@{ext2\_inode}!osd2@{osd2}}
+\index{osd2@{osd2}!ext2\_inode@{ext2\_inode}}
+\doxysubsubsection{\texorpdfstring{}{}}
+{\footnotesize\ttfamily union \{ ... \}  ext2\+\_\+inode\+::osd2}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{ext2__fs_8h}{ext2\+\_\+fs.\+h}}\end{DoxyCompactItemize}

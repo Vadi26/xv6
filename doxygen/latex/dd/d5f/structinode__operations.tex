@@ -1,0 +1,123 @@
+\hypertarget{structinode__operations}{}\doxysection{inode\+\_\+operations Struct Reference}
+\label{structinode__operations}\index{inode\_operations@{inode\_operations}}
+
+
+{\ttfamily \#include $<$file.\+h$>$}
+
+
+
+Collaboration diagram for inode\+\_\+operations\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{db/d81/structinode__operations__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int($\ast$ \mbox{\hyperlink{structinode__operations_a7c569ae88d556ca29653c7acf32ab0ae}{dirlinK}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$, char $\ast$, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})
+\item 
+struct \mbox{\hyperlink{structinode}{inode}} $\ast$($\ast$ \mbox{\hyperlink{structinode__operations_a78db53f6b63daf19c2f49d1e110bb937}{dirlookuP}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$, char $\ast$, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} $\ast$)
+\item 
+struct \mbox{\hyperlink{structinode}{inode}} $\ast$($\ast$ \mbox{\hyperlink{structinode__operations_a323ec8cfb115ed1bf0b59c3b39bf8694}{ialloC}} )(\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, short)
+\item 
+void($\ast$ \mbox{\hyperlink{structinode__operations_af554ce78900b4117d9b1f57ac4aa18b0}{iiniT}} )(int)
+\item 
+void($\ast$ \mbox{\hyperlink{structinode__operations_a46b475d0d13dd5fa2ed80d2aacb67dfd}{ilocK}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$)
+\item 
+void($\ast$ \mbox{\hyperlink{structinode__operations_a72749615eee5991982c3d386e214af72}{ipuT}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$)
+\item 
+void($\ast$ \mbox{\hyperlink{structinode__operations_a39de2022514b0ae5eab090d7747bd1f8}{iunlocK}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$)
+\item 
+void($\ast$ \mbox{\hyperlink{structinode__operations_a63595d3e75f7d3e42fd4cbaefe0cd77a}{iunlockpuT}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$)
+\item 
+void($\ast$ \mbox{\hyperlink{structinode__operations_a747c13adb546b2629d00b0dcb88cbcce}{iupdatE}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$)
+\item 
+int($\ast$ \mbox{\hyperlink{structinode__operations_afeab6051c0f53b369b4e4e25cb128bc1}{readI}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$, char $\ast$, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})
+\item 
+void($\ast$ \mbox{\hyperlink{structinode__operations_af1427527cbf55592dd810052a60c433c}{statI}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$, struct \mbox{\hyperlink{structstat}{stat}} $\ast$)
+\item 
+int($\ast$ \mbox{\hyperlink{structinode__operations_ad04f068e32c0ecfadc9ed1acac0b5b7f}{writeI}} )(struct \mbox{\hyperlink{structinode}{inode}} $\ast$, char $\ast$, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structinode__operations_a7c569ae88d556ca29653c7acf32ab0ae}\label{structinode__operations_a7c569ae88d556ca29653c7acf32ab0ae}} 
+\index{inode\_operations@{inode\_operations}!dirlinK@{dirlinK}}
+\index{dirlinK@{dirlinK}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{dirlinK}{dirlinK}}
+{\footnotesize\ttfamily int($\ast$ inode\+\_\+operations\+::dirlinK) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$, char $\ast$, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})}
+
+\mbox{\Hypertarget{structinode__operations_a78db53f6b63daf19c2f49d1e110bb937}\label{structinode__operations_a78db53f6b63daf19c2f49d1e110bb937}} 
+\index{inode\_operations@{inode\_operations}!dirlookuP@{dirlookuP}}
+\index{dirlookuP@{dirlookuP}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{dirlookuP}{dirlookuP}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structinode}{inode}}$\ast$($\ast$ inode\+\_\+operations\+::dirlookuP) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$, char $\ast$, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} $\ast$)}
+
+\mbox{\Hypertarget{structinode__operations_a323ec8cfb115ed1bf0b59c3b39bf8694}\label{structinode__operations_a323ec8cfb115ed1bf0b59c3b39bf8694}} 
+\index{inode\_operations@{inode\_operations}!ialloC@{ialloC}}
+\index{ialloC@{ialloC}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{ialloC}{ialloC}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structinode}{inode}}$\ast$($\ast$ inode\+\_\+operations\+::ialloC) (\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, short)}
+
+\mbox{\Hypertarget{structinode__operations_af554ce78900b4117d9b1f57ac4aa18b0}\label{structinode__operations_af554ce78900b4117d9b1f57ac4aa18b0}} 
+\index{inode\_operations@{inode\_operations}!iiniT@{iiniT}}
+\index{iiniT@{iiniT}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{iiniT}{iiniT}}
+{\footnotesize\ttfamily void($\ast$ inode\+\_\+operations\+::iiniT) (int)}
+
+\mbox{\Hypertarget{structinode__operations_a46b475d0d13dd5fa2ed80d2aacb67dfd}\label{structinode__operations_a46b475d0d13dd5fa2ed80d2aacb67dfd}} 
+\index{inode\_operations@{inode\_operations}!ilocK@{ilocK}}
+\index{ilocK@{ilocK}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{ilocK}{ilocK}}
+{\footnotesize\ttfamily void($\ast$ inode\+\_\+operations\+::ilocK) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$)}
+
+\mbox{\Hypertarget{structinode__operations_a72749615eee5991982c3d386e214af72}\label{structinode__operations_a72749615eee5991982c3d386e214af72}} 
+\index{inode\_operations@{inode\_operations}!ipuT@{ipuT}}
+\index{ipuT@{ipuT}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{ipuT}{ipuT}}
+{\footnotesize\ttfamily void($\ast$ inode\+\_\+operations\+::ipuT) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$)}
+
+\mbox{\Hypertarget{structinode__operations_a39de2022514b0ae5eab090d7747bd1f8}\label{structinode__operations_a39de2022514b0ae5eab090d7747bd1f8}} 
+\index{inode\_operations@{inode\_operations}!iunlocK@{iunlocK}}
+\index{iunlocK@{iunlocK}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{iunlocK}{iunlocK}}
+{\footnotesize\ttfamily void($\ast$ inode\+\_\+operations\+::iunlocK) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$)}
+
+\mbox{\Hypertarget{structinode__operations_a63595d3e75f7d3e42fd4cbaefe0cd77a}\label{structinode__operations_a63595d3e75f7d3e42fd4cbaefe0cd77a}} 
+\index{inode\_operations@{inode\_operations}!iunlockpuT@{iunlockpuT}}
+\index{iunlockpuT@{iunlockpuT}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{iunlockpuT}{iunlockpuT}}
+{\footnotesize\ttfamily void($\ast$ inode\+\_\+operations\+::iunlockpuT) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$)}
+
+\mbox{\Hypertarget{structinode__operations_a747c13adb546b2629d00b0dcb88cbcce}\label{structinode__operations_a747c13adb546b2629d00b0dcb88cbcce}} 
+\index{inode\_operations@{inode\_operations}!iupdatE@{iupdatE}}
+\index{iupdatE@{iupdatE}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{iupdatE}{iupdatE}}
+{\footnotesize\ttfamily void($\ast$ inode\+\_\+operations\+::iupdatE) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$)}
+
+\mbox{\Hypertarget{structinode__operations_afeab6051c0f53b369b4e4e25cb128bc1}\label{structinode__operations_afeab6051c0f53b369b4e4e25cb128bc1}} 
+\index{inode\_operations@{inode\_operations}!readI@{readI}}
+\index{readI@{readI}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{readI}{readI}}
+{\footnotesize\ttfamily int($\ast$ inode\+\_\+operations\+::readI) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$, char $\ast$, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})}
+
+\mbox{\Hypertarget{structinode__operations_af1427527cbf55592dd810052a60c433c}\label{structinode__operations_af1427527cbf55592dd810052a60c433c}} 
+\index{inode\_operations@{inode\_operations}!statI@{statI}}
+\index{statI@{statI}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{statI}{statI}}
+{\footnotesize\ttfamily void($\ast$ inode\+\_\+operations\+::statI) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$, struct \mbox{\hyperlink{structstat}{stat}} $\ast$)}
+
+\mbox{\Hypertarget{structinode__operations_ad04f068e32c0ecfadc9ed1acac0b5b7f}\label{structinode__operations_ad04f068e32c0ecfadc9ed1acac0b5b7f}} 
+\index{inode\_operations@{inode\_operations}!writeI@{writeI}}
+\index{writeI@{writeI}!inode\_operations@{inode\_operations}}
+\doxysubsubsection{\texorpdfstring{writeI}{writeI}}
+{\footnotesize\ttfamily int($\ast$ inode\+\_\+operations\+::writeI) (struct \mbox{\hyperlink{structinode}{inode}} $\ast$, char $\ast$, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}})}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{file_8h}{file.\+h}}\end{DoxyCompactItemize}

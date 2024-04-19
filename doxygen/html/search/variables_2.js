@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['base_5f15_5f0_1277',['base_15_0',['../d8/d3e/structsegdesc.html#aaf95dd5b9105cf5729de49eb2542072a',1,'segdesc']]],
+  ['base_5f23_5f16_1278',['base_23_16',['../d8/d3e/structsegdesc.html#aa5cff1f1ddfac386e2268108c8f5b6c2',1,'segdesc']]],
+  ['base_5f31_5f24_1279',['base_31_24',['../d8/d3e/structsegdesc.html#a164a6a2e75fc62e61daef3ddab7f3169',1,'segdesc']]],
+  ['bcache_1280',['bcache',['../dc/de6/bio_8c.html#a7725a9957148b7740449a091ea12b0e4',1,'bio.c']]],
+  ['bg_5fblock_5fbitmap_1281',['bg_block_bitmap',['../d4/d86/structext2__group__desc.html#a94c7df205af5664692d514fb6cdfd39f',1,'ext2_group_desc']]],
+  ['bg_5ffree_5fblocks_5fcount_1282',['bg_free_blocks_count',['../d4/d86/structext2__group__desc.html#a88bea1b353f52d2ba09c8d225627062d',1,'ext2_group_desc']]],
+  ['bg_5ffree_5finodes_5fcount_1283',['bg_free_inodes_count',['../d4/d86/structext2__group__desc.html#ad3229351ca0d1e2fdc20bc2ae382b69f',1,'ext2_group_desc']]],
+  ['bg_5finode_5fbitmap_1284',['bg_inode_bitmap',['../d4/d86/structext2__group__desc.html#a2b1cd2308cf9fb4894419cc0a01bb15b',1,'ext2_group_desc']]],
+  ['bg_5finode_5ftable_1285',['bg_inode_table',['../d4/d86/structext2__group__desc.html#a4055fb91e3383bb7ed86f986dd8e556b',1,'ext2_group_desc']]],
+  ['bg_5fpad_1286',['bg_pad',['../d4/d86/structext2__group__desc.html#a4cf8575507e36781aab27591d36be568',1,'ext2_group_desc']]],
+  ['bg_5freserved_1287',['bg_reserved',['../d4/d86/structext2__group__desc.html#ae62aa61c936abc7fd5dabd2200834ca5',1,'ext2_group_desc']]],
+  ['bg_5fused_5fdirs_5fcount_1288',['bg_used_dirs_count',['../d4/d86/structext2__group__desc.html#ae26094581894264e99560b14fd186dae',1,'ext2_group_desc']]],
+  ['block_1289',['block',['../d4/d6c/structlogheader.html#a020db7fe04c7ce6b8f4aee2092576c2c',1,'logheader']]],
+  ['blockno_1290',['blockno',['../d9/dd0/structbuf.html#a756b2bcc88008bef7f21d688aa4a7a48',1,'buf']]],
+  ['bmapstart_1291',['bmapstart',['../df/d3d/structsuperblock.html#a3c815dda5be6bda609389e76434171cc',1,'superblock']]],
+  ['buf_1292',['buf',['../dc/de6/bio_8c.html#a72ee90c61d41547b10a533c219e081c6',1,'buf():&#160;bio.c'],['../d0/d56/console_8c.html#aa427837782b05b05204809dfba33c8f5',1,'buf():&#160;console.c']]],
+  ['busy_1293',['busy',['../dd/dce/structext2fs__addrs.html#ac7e8f7899e226285fb8ab58a9e08952c',1,'ext2fs_addrs']]]
+];

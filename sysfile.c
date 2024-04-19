@@ -246,16 +246,32 @@ create(char *path, short type, short major, short minor)
 
   if((dp = nameiparent(path, name)) == 0)
     return 0;
-  ilock(dp);
+  if (dp->dev == EXT2DEV) dp->iops->ilocK(dp);
+  else ilock(dp);
 
-  if((ip = dirlookup(dp, name, 0)) != 0){
-    iunlockput(dp);
-    ilock(ip);
-    if(type == T_FILE && ip->type == T_FILE)
-      return ip;
-    iunlockput(ip);
-    return 0;
+  if (dp->dev != EXT2DEV) {
+      if((ip = dirlookup(dp, name, 0)) != 0){
+        iunlockput(dp);
+        ilock(ip);
+        if(type == T_FILE && ip->type == T_FILE)
+          return ip;
+        iunlockput(ip);
+        return 0;
+      }
   }
+  else {
+       if((ip = dp->iops->dirlookuP(dp, name, 0)) != 0){
+        // CHANGED
+        dp->iops->iunlockpuT(dp);
+        // CHANGED
+        ip->iops->ilocK(ip);
+        if(type == T_FILE && ip->type == T_FILE)
+          return ip;
+        // CHANGED
+        ip->iops->iunlockpuT(ip);
+        return 0;
+      }   
+   }
 
   if((ip = ialloc(dp->dev, type)) == 0)
     panic("create: ialloc");
@@ -306,9 +322,11 @@ sys_open(void)
       end_op();
       return -1;
     }
-    ilock(ip);
+    if (ip->dev == EXT2DEV) ip->iops->ilocK(ip);
+    else ilock(ip);
     if(ip->type == T_DIR && omode != O_RDONLY){
-      iunlockput(ip);
+      if (ip->dev == EXT2DEV) ip->iops->iunlockpuT(ip);
+      else iunlockput(ip);
       end_op();
       return -1;
     }
@@ -317,11 +335,13 @@ sys_open(void)
   if((f = filealloc()) == 0 || (fd = fdalloc(f)) < 0){
     if(f)
       fileclose(f);
-    iunlockput(ip);
+    if (ip->dev == EXT2DEV) ip->iops->iunlockpuT(ip);
+    else iunlockput(ip);
     end_op();
     return -1;
   }
-  iunlock(ip);
+  if (ip->dev == EXT2DEV) ip->iops->iunlocK(ip);
+  else iunlock(ip);
   end_op();
 
   f->type = FD_INODE;

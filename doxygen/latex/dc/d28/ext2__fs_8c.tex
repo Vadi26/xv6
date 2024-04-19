@@ -1,0 +1,148 @@
+\hypertarget{ext2__fs_8c}{}\doxysection{ext2\+\_\+fs.\+c File Reference}
+\label{ext2__fs_8c}\index{ext2\_fs.c@{ext2\_fs.c}}
+{\ttfamily \#include \char`\"{}types.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}defs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}param.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}stat.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}mmu.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}proc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}spinlock.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sleeplock.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}fs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}ext2\+\_\+fs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}buf.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}file.\+h\char`\"{}}\newline
+Include dependency graph for ext2\+\_\+fs.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{d5/d59/ext2__fs_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{ext2__fs_8c_a75f72686b1385e1f3764e6eaebca57bf}{ext2\+\_\+dirlink}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino, char $\ast$name, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} inum)
+\item 
+struct \mbox{\hyperlink{structinode}{inode}} $\ast$ \mbox{\hyperlink{ext2__fs_8c_ac945f42d560b227326f9541f2b5745d6}{ext2\+\_\+dirlookup}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino, char $\ast$name, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} $\ast$inum)
+\item 
+struct \mbox{\hyperlink{structinode}{inode}} $\ast$ \mbox{\hyperlink{ext2__fs_8c_a5da3308a100c222b684c1730fbf755a6}{ext2\+\_\+ialloc}} (\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} inum, short num)
+\item 
+void \mbox{\hyperlink{ext2__fs_8c_ad7b06ef6b64e3d8c921ea2d894bdc0b7}{ext2\+\_\+ilock}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino)
+\item 
+void \mbox{\hyperlink{ext2__fs_8c_af3271df12365cc4adb755eb5e1ae53dd}{ext2\+\_\+iput}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino)
+\item 
+void \mbox{\hyperlink{ext2__fs_8c_a05a6718d94a696fdcd00212bc48830b6}{ext2\+\_\+iunlock}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino)
+\item 
+void \mbox{\hyperlink{ext2__fs_8c_ab439f8b367d83938045b26d57578aaf5}{ext2\+\_\+iunlockput}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino)
+\item 
+void \mbox{\hyperlink{ext2__fs_8c_aa4a6ccce5cc87afa72974d67a3b0736c}{ext2\+\_\+iupdate}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino)
+\item 
+int \mbox{\hyperlink{ext2__fs_8c_a8e67ff6b52613e7575122187e61f8fb4}{ext2\+\_\+readi}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino, char $\ast$name, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} inum, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} num)
+\item 
+void \mbox{\hyperlink{ext2__fs_8c_aa56b0234b4bc56cba77e17b2b7d2845b}{ext2\+\_\+stati}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino, struct \mbox{\hyperlink{structstat}{stat}} $\ast$stat\+Struct)
+\item 
+int \mbox{\hyperlink{ext2__fs_8c_abfb622bb04183edc0ebac9c195d9c4ae}{ext2\+\_\+writei}} (struct \mbox{\hyperlink{structinode}{inode}} $\ast$ino, char $\ast$name, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} inum, \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} num)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structinode__operations}{inode\+\_\+operations}} \mbox{\hyperlink{ext2__fs_8c_adf223b272bbce4872bd4edb5a0eeab1b}{ext2\+\_\+inode\+\_\+ops}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{ext2__fs_8c_a75f72686b1385e1f3764e6eaebca57bf}\label{ext2__fs_8c_a75f72686b1385e1f3764e6eaebca57bf}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_dirlink@{ext2\_dirlink}}
+\index{ext2\_dirlink@{ext2\_dirlink}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_dirlink()}{ext2\_dirlink()}}
+{\footnotesize\ttfamily int ext2\+\_\+dirlink (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino,  }\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{inum }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_ac945f42d560b227326f9541f2b5745d6}\label{ext2__fs_8c_ac945f42d560b227326f9541f2b5745d6}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_dirlookup@{ext2\_dirlookup}}
+\index{ext2\_dirlookup@{ext2\_dirlookup}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_dirlookup()}{ext2\_dirlookup()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structinode}{inode}}$\ast$ ext2\+\_\+dirlookup (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino,  }\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} $\ast$}]{inum }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_a5da3308a100c222b684c1730fbf755a6}\label{ext2__fs_8c_a5da3308a100c222b684c1730fbf755a6}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_ialloc@{ext2\_ialloc}}
+\index{ext2\_ialloc@{ext2\_ialloc}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_ialloc()}{ext2\_ialloc()}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structinode}{inode}}$\ast$ ext2\+\_\+ialloc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{inum,  }\item[{short}]{num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_ad7b06ef6b64e3d8c921ea2d894bdc0b7}\label{ext2__fs_8c_ad7b06ef6b64e3d8c921ea2d894bdc0b7}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_ilock@{ext2\_ilock}}
+\index{ext2\_ilock@{ext2\_ilock}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_ilock()}{ext2\_ilock()}}
+{\footnotesize\ttfamily void ext2\+\_\+ilock (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_af3271df12365cc4adb755eb5e1ae53dd}\label{ext2__fs_8c_af3271df12365cc4adb755eb5e1ae53dd}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_iput@{ext2\_iput}}
+\index{ext2\_iput@{ext2\_iput}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_iput()}{ext2\_iput()}}
+{\footnotesize\ttfamily void ext2\+\_\+iput (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_a05a6718d94a696fdcd00212bc48830b6}\label{ext2__fs_8c_a05a6718d94a696fdcd00212bc48830b6}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_iunlock@{ext2\_iunlock}}
+\index{ext2\_iunlock@{ext2\_iunlock}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_iunlock()}{ext2\_iunlock()}}
+{\footnotesize\ttfamily void ext2\+\_\+iunlock (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_ab439f8b367d83938045b26d57578aaf5}\label{ext2__fs_8c_ab439f8b367d83938045b26d57578aaf5}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_iunlockput@{ext2\_iunlockput}}
+\index{ext2\_iunlockput@{ext2\_iunlockput}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_iunlockput()}{ext2\_iunlockput()}}
+{\footnotesize\ttfamily void ext2\+\_\+iunlockput (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_aa4a6ccce5cc87afa72974d67a3b0736c}\label{ext2__fs_8c_aa4a6ccce5cc87afa72974d67a3b0736c}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_iupdate@{ext2\_iupdate}}
+\index{ext2\_iupdate@{ext2\_iupdate}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_iupdate()}{ext2\_iupdate()}}
+{\footnotesize\ttfamily void ext2\+\_\+iupdate (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_a8e67ff6b52613e7575122187e61f8fb4}\label{ext2__fs_8c_a8e67ff6b52613e7575122187e61f8fb4}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_readi@{ext2\_readi}}
+\index{ext2\_readi@{ext2\_readi}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_readi()}{ext2\_readi()}}
+{\footnotesize\ttfamily int ext2\+\_\+readi (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino,  }\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{inum,  }\item[{\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_aa56b0234b4bc56cba77e17b2b7d2845b}\label{ext2__fs_8c_aa56b0234b4bc56cba77e17b2b7d2845b}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_stati@{ext2\_stati}}
+\index{ext2\_stati@{ext2\_stati}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_stati()}{ext2\_stati()}}
+{\footnotesize\ttfamily void ext2\+\_\+stati (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino,  }\item[{struct \mbox{\hyperlink{structstat}{stat}} $\ast$}]{stat\+Struct }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{ext2__fs_8c_abfb622bb04183edc0ebac9c195d9c4ae}\label{ext2__fs_8c_abfb622bb04183edc0ebac9c195d9c4ae}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_writei@{ext2\_writei}}
+\index{ext2\_writei@{ext2\_writei}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_writei()}{ext2\_writei()}}
+{\footnotesize\ttfamily int ext2\+\_\+writei (\begin{DoxyParamCaption}\item[{struct \mbox{\hyperlink{structinode}{inode}} $\ast$}]{ino,  }\item[{char $\ast$}]{name,  }\item[{\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{inum,  }\item[{\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}]{num }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ext2__fs_8c_adf223b272bbce4872bd4edb5a0eeab1b}\label{ext2__fs_8c_adf223b272bbce4872bd4edb5a0eeab1b}} 
+\index{ext2\_fs.c@{ext2\_fs.c}!ext2\_inode\_ops@{ext2\_inode\_ops}}
+\index{ext2\_inode\_ops@{ext2\_inode\_ops}!ext2\_fs.c@{ext2\_fs.c}}
+\doxysubsubsection{\texorpdfstring{ext2\_inode\_ops}{ext2\_inode\_ops}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structinode__operations}{inode\+\_\+operations}} ext2\+\_\+inode\+\_\+ops}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \{}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_a75f72686b1385e1f3764e6eaebca57bf}{ext2\_dirlink}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_ac945f42d560b227326f9541f2b5745d6}{ext2\_dirlookup}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_a5da3308a100c222b684c1730fbf755a6}{ext2\_ialloc}},}
+\DoxyCodeLine{        \mbox{\hyperlink{defs_8h_a951aa55eec1f36791ed0120140ad4b08}{ext2\_iinit}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_ad7b06ef6b64e3d8c921ea2d894bdc0b7}{ext2\_ilock}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_af3271df12365cc4adb755eb5e1ae53dd}{ext2\_iput}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_a05a6718d94a696fdcd00212bc48830b6}{ext2\_iunlock}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_ab439f8b367d83938045b26d57578aaf5}{ext2\_iunlockput}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_aa4a6ccce5cc87afa72974d67a3b0736c}{ext2\_iupdate}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_a8e67ff6b52613e7575122187e61f8fb4}{ext2\_readi}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_aa56b0234b4bc56cba77e17b2b7d2845b}{ext2\_stati}},}
+\DoxyCodeLine{        \mbox{\hyperlink{ext2__fs_8c_abfb622bb04183edc0ebac9c195d9c4ae}{ext2\_writei}},}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}

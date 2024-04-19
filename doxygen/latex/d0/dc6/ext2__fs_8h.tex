@@ -1,0 +1,271 @@
+\hypertarget{ext2__fs_8h}{}\doxysection{ext2\+\_\+fs.\+h File Reference}
+\label{ext2__fs_8h}\index{ext2\_fs.h@{ext2\_fs.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=258pt]{de/dc3/ext2__fs_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structext2fs__addrs}{ext2fs\+\_\+addrs}}
+\item 
+struct \mbox{\hyperlink{structext2__superblock}{ext2\+\_\+superblock}}
+\item 
+struct \mbox{\hyperlink{structext2__group__desc}{ext2\+\_\+group\+\_\+desc}}
+\item 
+struct \mbox{\hyperlink{structext2__inode}{ext2\+\_\+inode}}
+\item 
+struct \mbox{\hyperlink{structext2__dir__entry__2}{ext2\+\_\+dir\+\_\+entry\+\_\+2}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a54b63e64866006c403a289ff096e7b34}{EXT2\+\_\+\+MIN\+\_\+\+BLKSIZE}}~1024
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a5a4b87af3f4498e3f2a254e8fbfe2ec3}{EXT2\+\_\+\+SUPER\+\_\+\+MAGIC}}~0x\+EF53
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_af4977f0f1aa0c2323d18859ab77fd7a6}{EXT2\+\_\+\+MAX\+\_\+\+BGC}}~40
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a314a7f6544f6f42a028068c0ce164391}{EXT2\+\_\+\+NAME\+\_\+\+LEN}}~255
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a23d756ca2db4c32fc1a56c9eff8ee64a}{EXT2\+\_\+\+DIR\+\_\+\+PAD}}~4
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a98891659118f4be2076b10d68d06d95a}{EXT2\+\_\+\+DIR\+\_\+\+ROUND}}~(\mbox{\hyperlink{ext2__fs_8h_a23d756ca2db4c32fc1a56c9eff8ee64a}{EXT2\+\_\+\+DIR\+\_\+\+PAD}} -\/ 1)
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_ac933639b3fc5ef1a72cd6390063c5c7f}{EXT2\+\_\+\+DIR\+\_\+\+REC\+\_\+\+LEN}}(name\+\_\+len)
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a6703cad97f39459bb39fd7f31cea05f7}{EXT2\+\_\+\+MAX\+\_\+\+REC\+\_\+\+LEN}}~((1$<$$<$16)-\/1)
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a1e23f3dbe221f484c4fdc18a0213d125}{EXT2\+\_\+\+MIN\+\_\+\+BLOCK\+\_\+\+SIZE}}~1024
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a4ad5942e1fd4fea4cbb1cb88b2dc2d0a}{EXT2\+\_\+\+MAX\+\_\+\+BLOCK\+\_\+\+SIZE}}~4096
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_aaad8a463d412146381bf44402285671d}{EXT2\+\_\+\+BLOCK\+\_\+\+SIZE}}(s)~((s)-\/$>$blocksize)
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a07893b6e8253ebd7b39791baef51a0f9}{EXT2\+\_\+\+ADDR\+\_\+\+PER\+\_\+\+BLOCK}}(s)~(\mbox{\hyperlink{ext2__fs_8h_aaad8a463d412146381bf44402285671d}{EXT2\+\_\+\+BLOCK\+\_\+\+SIZE}}(s) / sizeof (\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}))
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a4c0e396e09d0bbce952f56785a94a5aa}{EXT2\+\_\+\+BLOCK\+\_\+\+SIZE\+\_\+\+BITS}}(s)~((s)-\/$>$s\+\_\+blocksize\+\_\+bits)
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a5466dbceff9b8fe74110eaf7279ac2f8}{EXT2\+\_\+\+NDIR\+\_\+\+BLOCKS}}~12
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a0ad4fd54bd5dde81d20feca9a9c106c6}{EXT2\+\_\+\+IND\+\_\+\+BLOCK}}~\mbox{\hyperlink{ext2__fs_8h_a5466dbceff9b8fe74110eaf7279ac2f8}{EXT2\+\_\+\+NDIR\+\_\+\+BLOCKS}}
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a6e95dea120c910dcba3cd94125d5503a}{EXT2\+\_\+\+DIND\+\_\+\+BLOCK}}~(\mbox{\hyperlink{ext2__fs_8h_a0ad4fd54bd5dde81d20feca9a9c106c6}{EXT2\+\_\+\+IND\+\_\+\+BLOCK}} + 1)
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a71858954b55fd2631ea5cba8a33ef1ff}{EXT2\+\_\+\+TIND\+\_\+\+BLOCK}}~(\mbox{\hyperlink{ext2__fs_8h_a6e95dea120c910dcba3cd94125d5503a}{EXT2\+\_\+\+DIND\+\_\+\+BLOCK}} + 1)
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_add1194efd19a37c1239a967ed68b6614}{EXT2\+\_\+\+N\+\_\+\+BLOCKS}}~(\mbox{\hyperlink{ext2__fs_8h_a71858954b55fd2631ea5cba8a33ef1ff}{EXT2\+\_\+\+TIND\+\_\+\+BLOCK}} + 1)
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a61620f0408a19d310728ec5915f8fde4}{EXT2\+\_\+\+BSIZE}}~1024
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_a59955a7bf2f4085a528e6049bbf36b94}{GET\+\_\+\+GROUP\+\_\+\+NO}}(inum,  ext2\+\_\+sb)~((inum -\/ 1) / ext2\+\_\+sb.\+s\+\_\+inodes\+\_\+per\+\_\+group)
+\item 
+\#define \mbox{\hyperlink{ext2__fs_8h_afe5e396abb5cb15b5174330f5780dfcb}{GET\+\_\+\+INODE\+\_\+\+INDEX}}(inum,  ext2\+\_\+sb)~((inum -\/ 1) \% ext2\+\_\+sb.\+s\+\_\+inodes\+\_\+per\+\_\+group)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef unsigned int \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}
+\item 
+typedef unsigned short \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}}
+\item 
+typedef unsigned char \mbox{\hyperlink{ext2__fs_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}}
+\item 
+typedef \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{ext2__fs_8h_ac131849542282b2c95dfeaf1f26dc010}{pde\+\_\+t}}
+\item 
+typedef unsigned long \mbox{\hyperlink{ext2__fs_8h_ac6713aac755ff062e345a28b44974577}{ext2\+\_\+fsblk\+\_\+t}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structinode__operations}{inode\+\_\+operations}} \mbox{\hyperlink{ext2__fs_8h_adf223b272bbce4872bd4edb5a0eeab1b}{ext2\+\_\+inode\+\_\+ops}}
+\item 
+struct \mbox{\hyperlink{structext2fs__addrs}{ext2fs\+\_\+addrs}} \mbox{\hyperlink{ext2__fs_8h_a017e713efaf9e912780a0e8c8b52ccc4}{ext2fs\+\_\+addrs}} \mbox{[}\mbox{\hyperlink{param_8h_adabafa10c7951be7c875cd2ee212be85}{NINODE}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ext2__fs_8h_a07893b6e8253ebd7b39791baef51a0f9}\label{ext2__fs_8h_a07893b6e8253ebd7b39791baef51a0f9}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_ADDR\_PER\_BLOCK@{EXT2\_ADDR\_PER\_BLOCK}}
+\index{EXT2\_ADDR\_PER\_BLOCK@{EXT2\_ADDR\_PER\_BLOCK}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_ADDR\_PER\_BLOCK}{EXT2\_ADDR\_PER\_BLOCK}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+ADDR\+\_\+\+PER\+\_\+\+BLOCK(\begin{DoxyParamCaption}\item[{}]{s }\end{DoxyParamCaption})~(\mbox{\hyperlink{ext2__fs_8h_aaad8a463d412146381bf44402285671d}{EXT2\+\_\+\+BLOCK\+\_\+\+SIZE}}(s) / sizeof (\mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}))}
+
+\mbox{\Hypertarget{ext2__fs_8h_aaad8a463d412146381bf44402285671d}\label{ext2__fs_8h_aaad8a463d412146381bf44402285671d}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_BLOCK\_SIZE@{EXT2\_BLOCK\_SIZE}}
+\index{EXT2\_BLOCK\_SIZE@{EXT2\_BLOCK\_SIZE}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_BLOCK\_SIZE}{EXT2\_BLOCK\_SIZE}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+BLOCK\+\_\+\+SIZE(\begin{DoxyParamCaption}\item[{}]{s }\end{DoxyParamCaption})~((s)-\/$>$blocksize)}
+
+\mbox{\Hypertarget{ext2__fs_8h_a4c0e396e09d0bbce952f56785a94a5aa}\label{ext2__fs_8h_a4c0e396e09d0bbce952f56785a94a5aa}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_BLOCK\_SIZE\_BITS@{EXT2\_BLOCK\_SIZE\_BITS}}
+\index{EXT2\_BLOCK\_SIZE\_BITS@{EXT2\_BLOCK\_SIZE\_BITS}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_BLOCK\_SIZE\_BITS}{EXT2\_BLOCK\_SIZE\_BITS}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+BLOCK\+\_\+\+SIZE\+\_\+\+BITS(\begin{DoxyParamCaption}\item[{}]{s }\end{DoxyParamCaption})~((s)-\/$>$s\+\_\+blocksize\+\_\+bits)}
+
+\mbox{\Hypertarget{ext2__fs_8h_a61620f0408a19d310728ec5915f8fde4}\label{ext2__fs_8h_a61620f0408a19d310728ec5915f8fde4}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_BSIZE@{EXT2\_BSIZE}}
+\index{EXT2\_BSIZE@{EXT2\_BSIZE}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_BSIZE}{EXT2\_BSIZE}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+BSIZE~1024}
+
+\mbox{\Hypertarget{ext2__fs_8h_a6e95dea120c910dcba3cd94125d5503a}\label{ext2__fs_8h_a6e95dea120c910dcba3cd94125d5503a}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_DIND\_BLOCK@{EXT2\_DIND\_BLOCK}}
+\index{EXT2\_DIND\_BLOCK@{EXT2\_DIND\_BLOCK}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_DIND\_BLOCK}{EXT2\_DIND\_BLOCK}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+DIND\+\_\+\+BLOCK~(\mbox{\hyperlink{ext2__fs_8h_a0ad4fd54bd5dde81d20feca9a9c106c6}{EXT2\+\_\+\+IND\+\_\+\+BLOCK}} + 1)}
+
+\mbox{\Hypertarget{ext2__fs_8h_a23d756ca2db4c32fc1a56c9eff8ee64a}\label{ext2__fs_8h_a23d756ca2db4c32fc1a56c9eff8ee64a}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_DIR\_PAD@{EXT2\_DIR\_PAD}}
+\index{EXT2\_DIR\_PAD@{EXT2\_DIR\_PAD}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_DIR\_PAD}{EXT2\_DIR\_PAD}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+DIR\+\_\+\+PAD~4}
+
+\mbox{\Hypertarget{ext2__fs_8h_ac933639b3fc5ef1a72cd6390063c5c7f}\label{ext2__fs_8h_ac933639b3fc5ef1a72cd6390063c5c7f}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_DIR\_REC\_LEN@{EXT2\_DIR\_REC\_LEN}}
+\index{EXT2\_DIR\_REC\_LEN@{EXT2\_DIR\_REC\_LEN}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_DIR\_REC\_LEN}{EXT2\_DIR\_REC\_LEN}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+DIR\+\_\+\+REC\+\_\+\+LEN(\begin{DoxyParamCaption}\item[{}]{name\+\_\+len }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                                         (((name\_len) + 8 + \mbox{\hyperlink{ext2__fs_8h_a98891659118f4be2076b10d68d06d95a}{EXT2\_DIR\_ROUND}}) \& \(\backslash\)}
+\DoxyCodeLine{                                         \string~EXT2\_DIR\_ROUND)}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{ext2__fs_8h_a98891659118f4be2076b10d68d06d95a}\label{ext2__fs_8h_a98891659118f4be2076b10d68d06d95a}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_DIR\_ROUND@{EXT2\_DIR\_ROUND}}
+\index{EXT2\_DIR\_ROUND@{EXT2\_DIR\_ROUND}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_DIR\_ROUND}{EXT2\_DIR\_ROUND}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+DIR\+\_\+\+ROUND~(\mbox{\hyperlink{ext2__fs_8h_a23d756ca2db4c32fc1a56c9eff8ee64a}{EXT2\+\_\+\+DIR\+\_\+\+PAD}} -\/ 1)}
+
+\mbox{\Hypertarget{ext2__fs_8h_a0ad4fd54bd5dde81d20feca9a9c106c6}\label{ext2__fs_8h_a0ad4fd54bd5dde81d20feca9a9c106c6}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_IND\_BLOCK@{EXT2\_IND\_BLOCK}}
+\index{EXT2\_IND\_BLOCK@{EXT2\_IND\_BLOCK}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_IND\_BLOCK}{EXT2\_IND\_BLOCK}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+IND\+\_\+\+BLOCK~\mbox{\hyperlink{ext2__fs_8h_a5466dbceff9b8fe74110eaf7279ac2f8}{EXT2\+\_\+\+NDIR\+\_\+\+BLOCKS}}}
+
+\mbox{\Hypertarget{ext2__fs_8h_af4977f0f1aa0c2323d18859ab77fd7a6}\label{ext2__fs_8h_af4977f0f1aa0c2323d18859ab77fd7a6}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_MAX\_BGC@{EXT2\_MAX\_BGC}}
+\index{EXT2\_MAX\_BGC@{EXT2\_MAX\_BGC}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_MAX\_BGC}{EXT2\_MAX\_BGC}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+MAX\+\_\+\+BGC~40}
+
+\mbox{\Hypertarget{ext2__fs_8h_a4ad5942e1fd4fea4cbb1cb88b2dc2d0a}\label{ext2__fs_8h_a4ad5942e1fd4fea4cbb1cb88b2dc2d0a}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_MAX\_BLOCK\_SIZE@{EXT2\_MAX\_BLOCK\_SIZE}}
+\index{EXT2\_MAX\_BLOCK\_SIZE@{EXT2\_MAX\_BLOCK\_SIZE}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_MAX\_BLOCK\_SIZE}{EXT2\_MAX\_BLOCK\_SIZE}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+MAX\+\_\+\+BLOCK\+\_\+\+SIZE~4096}
+
+\mbox{\Hypertarget{ext2__fs_8h_a6703cad97f39459bb39fd7f31cea05f7}\label{ext2__fs_8h_a6703cad97f39459bb39fd7f31cea05f7}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_MAX\_REC\_LEN@{EXT2\_MAX\_REC\_LEN}}
+\index{EXT2\_MAX\_REC\_LEN@{EXT2\_MAX\_REC\_LEN}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_MAX\_REC\_LEN}{EXT2\_MAX\_REC\_LEN}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+MAX\+\_\+\+REC\+\_\+\+LEN~((1$<$$<$16)-\/1)}
+
+\mbox{\Hypertarget{ext2__fs_8h_a54b63e64866006c403a289ff096e7b34}\label{ext2__fs_8h_a54b63e64866006c403a289ff096e7b34}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_MIN\_BLKSIZE@{EXT2\_MIN\_BLKSIZE}}
+\index{EXT2\_MIN\_BLKSIZE@{EXT2\_MIN\_BLKSIZE}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_MIN\_BLKSIZE}{EXT2\_MIN\_BLKSIZE}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+MIN\+\_\+\+BLKSIZE~1024}
+
+\mbox{\Hypertarget{ext2__fs_8h_a1e23f3dbe221f484c4fdc18a0213d125}\label{ext2__fs_8h_a1e23f3dbe221f484c4fdc18a0213d125}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_MIN\_BLOCK\_SIZE@{EXT2\_MIN\_BLOCK\_SIZE}}
+\index{EXT2\_MIN\_BLOCK\_SIZE@{EXT2\_MIN\_BLOCK\_SIZE}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_MIN\_BLOCK\_SIZE}{EXT2\_MIN\_BLOCK\_SIZE}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+MIN\+\_\+\+BLOCK\+\_\+\+SIZE~1024}
+
+\mbox{\Hypertarget{ext2__fs_8h_add1194efd19a37c1239a967ed68b6614}\label{ext2__fs_8h_add1194efd19a37c1239a967ed68b6614}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_N\_BLOCKS@{EXT2\_N\_BLOCKS}}
+\index{EXT2\_N\_BLOCKS@{EXT2\_N\_BLOCKS}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_N\_BLOCKS}{EXT2\_N\_BLOCKS}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+N\+\_\+\+BLOCKS~(\mbox{\hyperlink{ext2__fs_8h_a71858954b55fd2631ea5cba8a33ef1ff}{EXT2\+\_\+\+TIND\+\_\+\+BLOCK}} + 1)}
+
+\mbox{\Hypertarget{ext2__fs_8h_a314a7f6544f6f42a028068c0ce164391}\label{ext2__fs_8h_a314a7f6544f6f42a028068c0ce164391}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_NAME\_LEN@{EXT2\_NAME\_LEN}}
+\index{EXT2\_NAME\_LEN@{EXT2\_NAME\_LEN}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_NAME\_LEN}{EXT2\_NAME\_LEN}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+NAME\+\_\+\+LEN~255}
+
+\mbox{\Hypertarget{ext2__fs_8h_a5466dbceff9b8fe74110eaf7279ac2f8}\label{ext2__fs_8h_a5466dbceff9b8fe74110eaf7279ac2f8}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_NDIR\_BLOCKS@{EXT2\_NDIR\_BLOCKS}}
+\index{EXT2\_NDIR\_BLOCKS@{EXT2\_NDIR\_BLOCKS}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_NDIR\_BLOCKS}{EXT2\_NDIR\_BLOCKS}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+NDIR\+\_\+\+BLOCKS~12}
+
+\mbox{\Hypertarget{ext2__fs_8h_a5a4b87af3f4498e3f2a254e8fbfe2ec3}\label{ext2__fs_8h_a5a4b87af3f4498e3f2a254e8fbfe2ec3}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_SUPER\_MAGIC@{EXT2\_SUPER\_MAGIC}}
+\index{EXT2\_SUPER\_MAGIC@{EXT2\_SUPER\_MAGIC}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_SUPER\_MAGIC}{EXT2\_SUPER\_MAGIC}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+SUPER\+\_\+\+MAGIC~0x\+EF53}
+
+\mbox{\Hypertarget{ext2__fs_8h_a71858954b55fd2631ea5cba8a33ef1ff}\label{ext2__fs_8h_a71858954b55fd2631ea5cba8a33ef1ff}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!EXT2\_TIND\_BLOCK@{EXT2\_TIND\_BLOCK}}
+\index{EXT2\_TIND\_BLOCK@{EXT2\_TIND\_BLOCK}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{EXT2\_TIND\_BLOCK}{EXT2\_TIND\_BLOCK}}
+{\footnotesize\ttfamily \#define EXT2\+\_\+\+TIND\+\_\+\+BLOCK~(\mbox{\hyperlink{ext2__fs_8h_a6e95dea120c910dcba3cd94125d5503a}{EXT2\+\_\+\+DIND\+\_\+\+BLOCK}} + 1)}
+
+\mbox{\Hypertarget{ext2__fs_8h_a59955a7bf2f4085a528e6049bbf36b94}\label{ext2__fs_8h_a59955a7bf2f4085a528e6049bbf36b94}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!GET\_GROUP\_NO@{GET\_GROUP\_NO}}
+\index{GET\_GROUP\_NO@{GET\_GROUP\_NO}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{GET\_GROUP\_NO}{GET\_GROUP\_NO}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+GROUP\+\_\+\+NO(\begin{DoxyParamCaption}\item[{}]{inum,  }\item[{}]{ext2\+\_\+sb }\end{DoxyParamCaption})~((inum -\/ 1) / ext2\+\_\+sb.\+s\+\_\+inodes\+\_\+per\+\_\+group)}
+
+\mbox{\Hypertarget{ext2__fs_8h_afe5e396abb5cb15b5174330f5780dfcb}\label{ext2__fs_8h_afe5e396abb5cb15b5174330f5780dfcb}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!GET\_INODE\_INDEX@{GET\_INODE\_INDEX}}
+\index{GET\_INODE\_INDEX@{GET\_INODE\_INDEX}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{GET\_INODE\_INDEX}{GET\_INODE\_INDEX}}
+{\footnotesize\ttfamily \#define GET\+\_\+\+INODE\+\_\+\+INDEX(\begin{DoxyParamCaption}\item[{}]{inum,  }\item[{}]{ext2\+\_\+sb }\end{DoxyParamCaption})~((inum -\/ 1) \% ext2\+\_\+sb.\+s\+\_\+inodes\+\_\+per\+\_\+group)}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{ext2__fs_8h_ac6713aac755ff062e345a28b44974577}\label{ext2__fs_8h_ac6713aac755ff062e345a28b44974577}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!ext2\_fsblk\_t@{ext2\_fsblk\_t}}
+\index{ext2\_fsblk\_t@{ext2\_fsblk\_t}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{ext2\_fsblk\_t}{ext2\_fsblk\_t}}
+{\footnotesize\ttfamily typedef unsigned long \mbox{\hyperlink{ext2__fs_8h_ac6713aac755ff062e345a28b44974577}{ext2\+\_\+fsblk\+\_\+t}}}
+
+\mbox{\Hypertarget{ext2__fs_8h_ac131849542282b2c95dfeaf1f26dc010}\label{ext2__fs_8h_ac131849542282b2c95dfeaf1f26dc010}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!pde\_t@{pde\_t}}
+\index{pde\_t@{pde\_t}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{pde\_t}{pde\_t}}
+{\footnotesize\ttfamily typedef \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}} \mbox{\hyperlink{ext2__fs_8h_ac131849542282b2c95dfeaf1f26dc010}{pde\+\_\+t}}}
+
+\mbox{\Hypertarget{ext2__fs_8h_a65f85814a8290f9797005d3b28e7e5fc}\label{ext2__fs_8h_a65f85814a8290f9797005d3b28e7e5fc}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!uchar@{uchar}}
+\index{uchar@{uchar}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{uchar}{uchar}}
+{\footnotesize\ttfamily typedef unsigned char \mbox{\hyperlink{ext2__fs_8h_a65f85814a8290f9797005d3b28e7e5fc}{uchar}}}
+
+\mbox{\Hypertarget{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}\label{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!uint@{uint}}
+\index{uint@{uint}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{uint}{uint}}
+{\footnotesize\ttfamily typedef unsigned int \mbox{\hyperlink{ext2__fs_8h_a91ad9478d81a7aaf2593e8d9c3d06a14}{uint}}}
+
+\mbox{\Hypertarget{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}\label{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!ushort@{ushort}}
+\index{ushort@{ushort}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{ushort}{ushort}}
+{\footnotesize\ttfamily typedef unsigned short \mbox{\hyperlink{ext2__fs_8h_ab95f123a6c9bcfee6a343170ef8c5f69}{ushort}}}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{ext2__fs_8h_adf223b272bbce4872bd4edb5a0eeab1b}\label{ext2__fs_8h_adf223b272bbce4872bd4edb5a0eeab1b}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!ext2\_inode\_ops@{ext2\_inode\_ops}}
+\index{ext2\_inode\_ops@{ext2\_inode\_ops}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{ext2\_inode\_ops}{ext2\_inode\_ops}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structinode__operations}{inode\+\_\+operations}} ext2\+\_\+inode\+\_\+ops\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{ext2__fs_8h_a017e713efaf9e912780a0e8c8b52ccc4}\label{ext2__fs_8h_a017e713efaf9e912780a0e8c8b52ccc4}} 
+\index{ext2\_fs.h@{ext2\_fs.h}!ext2fs\_addrs@{ext2fs\_addrs}}
+\index{ext2fs\_addrs@{ext2fs\_addrs}!ext2\_fs.h@{ext2\_fs.h}}
+\doxysubsubsection{\texorpdfstring{ext2fs\_addrs}{ext2fs\_addrs}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structext2fs__addrs}{ext2fs\+\_\+addrs}} \mbox{\hyperlink{structext2fs__addrs}{ext2fs\+\_\+addrs}}\mbox{[}\mbox{\hyperlink{param_8h_adabafa10c7951be7c875cd2ee212be85}{NINODE}}\mbox{]}\hspace{0.3cm}{\ttfamily [extern]}}
+

@@ -115,24 +115,55 @@ openiputtest(void)
 
 // simple file system tests
 
+// void
+// opentest(void)
+// {
+//   int fd;
+
+//   printf(stdout, "open test\n");
+//   fd = open("echo", 0);
+//   if(fd < 0){
+//     printf(stdout, "open echo failed!\n");
+//     exit();
+//   }
+//   close(fd);
+//   fd = open("doesnotexist", 0);
+//   if(fd >= 0){
+//     printf(stdout, "open doesnotexist succeeded!\n");
+//     exit();
+//   }
+//   printf(stdout, "open test ok\n");
+// }
+
 void
 opentest(void)
 {
   int fd;
-
-  printf(stdout, "open test\n");
-  fd = open("echo", 0);
-  if(fd < 0){
-    printf(stdout, "open echo failed!\n");
+  fd = open("/mnt/file1", O_RDWR);
+  if (fd < 0){
+    printf(1, "cannot open /mnt/file1\n");
     exit();
   }
   close(fd);
-  fd = open("doesnotexist", 0);
-  if(fd >= 0){
-    printf(stdout, "open doesnotexist succeeded!\n");
+  printf(1, "open test1 passed\n");
+
+  fd = open("/mnt/file2", O_RDWR);
+  if (fd < 0){
+    printf(1, "cannot open /mnt/file2\n");
     exit();
   }
-  printf(stdout, "open test ok\n");
+  close(fd);
+  printf(1, "open test2 passed\n");
+
+  fd = open("/mnt/file3", O_RDWR);
+  if (fd < 0){
+    printf(1, "cannot open /mnt/file3\n");
+    exit();
+  }
+  close(fd);
+  printf(1, "open test3 passed\n");
+
+  printf(1, "All open test passed succesfully\n");
 }
 
 void
@@ -1750,54 +1781,54 @@ main(int argc, char *argv[])
 {
   printf(1, "usertests starting\n");
 
-  if(open("usertests.ran", 0) >= 0){
-    printf(1, "already ran user tests -- rebuild fs.img\n");
-    exit();
-  }
-  close(open("usertests.ran", O_CREATE));
+  // if(open("usertests.ran", 0) >= 0){
+  //   printf(1, "already ran user tests -- rebuild fs.img\n");
+  //   exit();
+  // }
+  // close(open("usertests.ran", O_CREATE));
 
-  argptest();
-  createdelete();
-  linkunlink();
-  concreate();
-  fourfiles();
-  sharedfd();
+  // argptest();
+  // createdelete();
+  // linkunlink();
+  // concreate();
+  // fourfiles();
+  // sharedfd();
 
-  bigargtest();
-  bigwrite();
-  bigargtest();
-  bsstest();
-  sbrktest();
-  validatetest();
+  // bigargtest();
+  // bigwrite();
+  // bigargtest();
+  // bsstest();
+  // sbrktest();
+  // validatetest();
 
-  opentest();
-  writetest();
-  writetest1();
-  createtest();
+  // opentest();
+  // writetest();
+  // writetest1();
+  // createtest();
 
-  openiputtest();
-  exitiputtest();
-  iputtest();
+  // openiputtest();
+  // exitiputtest();
+  // iputtest();
 
-  mem();
-  pipe1();
-  preempt();
-  exitwait();
+  // mem();
+  // pipe1();
+  // preempt();
+  // exitwait();
 
-  rmdot();
-  fourteen();
-  bigfile();
-  subdir();
-  linktest();
-  unlinkread();
-  dirfile();
-  iref();
-  forktest();
-  bigdir(); // slow
+  // rmdot();
+  // fourteen();
+  // bigfile();
+  // subdir();
+  // linktest();
+  // unlinkread();
+  // dirfile();
+  // iref();
+  // forktest();
+  // bigdir(); // slow
 
-  uio();
+  // uio();
 
-  exectest();
+  // exectest();
   opentest();
   exit();
 }

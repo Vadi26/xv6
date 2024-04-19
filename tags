@@ -11,7 +11,7 @@ BACK	sh.c	12;"	d	file:
 BACKSPACE	console.c	127;"	d	file:
 BBLOCK	fs.h	49;"	d
 BCAST	lapic.c	28;"	d	file:
-BIG	usertests.c	1452;"	d	file:
+BIG	usertests.c	1483;"	d	file:
 BPB	fs.h	46;"	d
 BSIZE	fs.h	7;"	d
 BUSY	lapic.c	29;"	d	file:
@@ -75,9 +75,9 @@ EXT2_N_BLOCKS	ext2_fs.h	34;"	d
 EXT2_SUPER_MAGIC	ext2_fs.h	14;"	d
 EXT2_TIND_BLOCK	ext2_fs.h	33;"	d
 EXTMEM	memlayout.h	3;"	d
-FD_INODE	file.h	/^  enum { FD_NONE, FD_PIPE, FD_INODE } type;$/;"	e	enum:file::__anon5
-FD_NONE	file.h	/^  enum { FD_NONE, FD_PIPE, FD_INODE } type;$/;"	e	enum:file::__anon5
-FD_PIPE	file.h	/^  enum { FD_NONE, FD_PIPE, FD_INODE } type;$/;"	e	enum:file::__anon5
+FD_INODE	file.h	/^  enum { FD_NONE, FD_PIPE, FD_INODE } type;$/;"	e	enum:file::__anon13
+FD_NONE	file.h	/^  enum { FD_NONE, FD_PIPE, FD_INODE } type;$/;"	e	enum:file::__anon13
+FD_PIPE	file.h	/^  enum { FD_NONE, FD_PIPE, FD_INODE } type;$/;"	e	enum:file::__anon13
 FIXED	lapic.c	30;"	d	file:
 FL_IF	mmu.h	5;"	d
 FSSIZE	param.h	14;"	d
@@ -152,7 +152,7 @@ NBUF	param.h	13;"	d
 NCPU	param.h	3;"	d
 NDEV	param.h	7;"	d
 NDIRECT	fs.h	25;"	d
-NELEM	defs.h	191;"	d
+NELEM	defs.h	205;"	d
 NFILE	param.h	5;"	d
 NINDIRECT	fs.h	26;"	d
 NINODE	param.h	6;"	d
@@ -195,8 +195,8 @@ REG_TABLE	ioapic.c	13;"	d	file:
 REG_VER	ioapic.c	12;"	d	file:
 ROOTDEV	param.h	8;"	d
 ROOTINO	fs.h	5;"	d
-RTC_ADDR	usertests.c	1701;"	d	file:
-RTC_DATA	usertests.c	1702;"	d	file:
+RTC_ADDR	usertests.c	1732;"	d	file:
+RTC_DATA	usertests.c	1733;"	d	file:
 RUNNABLE	proc.h	/^enum procstate { UNUSED, EMBRYO, SLEEPING, RUNNABLE, RUNNING, ZOMBIE };$/;"	e	enum:procstate
 RUNNING	proc.h	/^enum procstate { UNUSED, EMBRYO, SLEEPING, RUNNABLE, RUNNING, ZOMBIE };$/;"	e	enum:procstate
 SCROLLLOCK	kbd.h	15;"	d
@@ -288,6 +288,7 @@ _start	entry.S	/^_start = V2P_WO(entry)$/;"	d
 acquire	spinlock.c	/^acquire(struct spinlock *lk)$/;"	f
 acquiresleep	sleeplock.c	/^acquiresleep(struct sleeplock *lk)$/;"	f
 addr	mp.h	/^  uint *addr;                  \/\/ I\/O APIC address$/;"	m	struct:mpioapic
+addrs	ext2_fs.h	/^  uint addrs[EXT2_N_BLOCKS];$/;"	m	struct:ext2fs_addrs
 addrs	file.h	/^  uint addrs[NDIRECT+1];$/;"	m	struct:inode
 addrs	fs.h	/^  uint addrs[NDIRECT+1];   \/\/ Data block addresses$/;"	m	struct:dinode
 align	elf.h	/^  uint align;$/;"	m	struct:proghdr
@@ -319,6 +320,14 @@ base_31_24	mmu.h	/^  uint base_31_24 : 8; \/\/ High bits of segment base address
 bcache	bio.c	/^} bcache;$/;"	v	typeref:struct:__anon1
 begin_op	log.c	/^begin_op(void)$/;"	f
 bfree	fs.c	/^bfree(int dev, uint b)$/;"	f	file:
+bg_block_bitmap	ext2_fs.h	/^	uint	bg_block_bitmap;		\/* Blocks bitmap block *\/$/;"	m	struct:ext2_group_desc
+bg_free_blocks_count	ext2_fs.h	/^	ushort	bg_free_blocks_count;	\/* Free blocks count *\/$/;"	m	struct:ext2_group_desc
+bg_free_inodes_count	ext2_fs.h	/^	ushort	bg_free_inodes_count;	\/* Free inodes count *\/$/;"	m	struct:ext2_group_desc
+bg_inode_bitmap	ext2_fs.h	/^	uint	bg_inode_bitmap;		\/* Inodes bitmap block *\/$/;"	m	struct:ext2_group_desc
+bg_inode_table	ext2_fs.h	/^	uint	bg_inode_table;		\/* Inodes table block *\/$/;"	m	struct:ext2_group_desc
+bg_pad	ext2_fs.h	/^	ushort	bg_pad;$/;"	m	struct:ext2_group_desc
+bg_reserved	ext2_fs.h	/^	uint	bg_reserved[3];$/;"	m	struct:ext2_group_desc
+bg_used_dirs_count	ext2_fs.h	/^	ushort	bg_used_dirs_count;	\/* Directories count *\/$/;"	m	struct:ext2_group_desc
 bget	bio.c	/^bget(uint dev, uint blockno)$/;"	f	file:
 bigargtest	usertests.c	/^bigargtest(void)$/;"	f
 bigdir	usertests.c	/^bigdir(void)$/;"	f
@@ -340,6 +349,7 @@ buf	console.c	/^  char buf[INPUT_BUF];$/;"	m	struct:__anon3	file:
 buf	grep.c	/^char buf[1024];$/;"	v
 buf	usertests.c	/^char buf[8192];$/;"	v
 buf	wc.c	/^char buf[512];$/;"	v
+busy	ext2_fs.h	/^  uint busy;$/;"	m	struct:ext2fs_addrs
 bwrite	bio.c	/^bwrite(struct buf *b)$/;"	f
 bzero	fs.c	/^bzero(int dev, int bno)$/;"	f	file:
 cat	cat.c	/^cat(int fd)$/;"	f
@@ -397,9 +407,9 @@ devsw	file.h	/^struct devsw {$/;"	s
 dinode	fs.h	/^struct dinode {$/;"	s
 dirent	fs.h	/^struct dirent {$/;"	s
 dirfile	usertests.c	/^dirfile(void)$/;"	f
-dirlink	file.h	/^	int             (*dirlink)(struct inode*, char*, uint);$/;"	m	struct:inode_operations
+dirlinK	file.h	/^	int             (*dirlinK)(struct inode*, char*, uint);$/;"	m	struct:inode_operations
 dirlink	fs.c	/^dirlink(struct inode *dp, char *name, uint inum)$/;"	f
-dirlookup	file.h	/^	struct inode*   (*dirlookup)(struct inode*, char*, uint*);$/;"	m	struct:inode_operations	typeref:struct:inode_operations::dirlookup
+dirlookuP	file.h	/^	struct inode*   (*dirlookuP)(struct inode*, char*, uint*);$/;"	m	struct:inode_operations	typeref:struct:inode_operations::dirlookuP
 dirlookup	fs.c	/^dirlookup(struct inode *dp, char *name, uint *poff)$/;"	f
 dirtest	usertests.c	/^void dirtest(void)$/;"	f
 disksize	memide.c	/^static int disksize;$/;"	v	file:
@@ -459,20 +469,36 @@ exit	initcode.S	/^exit:$/;"	l
 exit	proc.c	/^exit(void)$/;"	f
 exitiputtest	usertests.c	/^exitiputtest(void)$/;"	f
 exitwait	usertests.c	/^exitwait(void)$/;"	f
-exs	fs.c	/^struct ext2_superblock exs;$/;"	v	typeref:struct:ext2_superblock
+exs	ext2_fs.c	/^struct ext2_superblock exs;$/;"	v	typeref:struct:ext2_superblock
+ext2_dir_entry_2	ext2_fs.h	/^struct ext2_dir_entry_2 {$/;"	s
+ext2_dirlink	ext2_fs.c	/^int ext2_dirlink(struct inode *ino, char *name, uint inum){$/;"	f
+ext2_dirlookup	ext2_fs.c	/^struct inode *ext2_dirlookup(struct inode *ino, char *name, uint *poff){$/;"	f
 ext2_fsblk_t	ext2_fs.h	/^typedef unsigned long ext2_fsblk_t;$/;"	t
-ext2_iinit	fs.c	/^void ext2_iinit(int dev){$/;"	f
-ext2_readsb	fs.c	/^ext2_readsb(int dev, struct ext2_superblock *sb)$/;"	f
+ext2_group_desc	ext2_fs.h	/^struct ext2_group_desc$/;"	s
+ext2_ialloc	ext2_fs.c	/^struct inode *ext2_ialloc(uint dev, short type){$/;"	f
+ext2_iinit	ext2_fs.c	/^void ext2_iinit(int dev){$/;"	f
+ext2_ilock	ext2_fs.c	/^void ext2_ilock(struct inode *ino){return;}$/;"	f
+ext2_inode	ext2_fs.h	/^struct ext2_inode {$/;"	s
+ext2_inode_ops	ext2_fs.c	/^struct inode_operations ext2_inode_ops = {$/;"	v	typeref:struct:inode_operations
+ext2_iput	ext2_fs.c	/^void ext2_iput(struct inode *ino){return;}$/;"	f
+ext2_iunlock	ext2_fs.c	/^void ext2_iunlock(struct inode *ino){return;}$/;"	f
+ext2_iunlockput	ext2_fs.c	/^void ext2_iunlockput(struct inode *ino){return;}$/;"	f
+ext2_iupdate	ext2_fs.c	/^void ext2_iupdate(struct inode *ino){return;}$/;"	f
+ext2_readi	ext2_fs.c	/^int ext2_readi(struct inode *ino, char *dest, uint offset, uint num){$/;"	f
+ext2_readsb	ext2_fs.c	/^ext2_readsb(int dev, struct ext2_superblock *exs)$/;"	f
+ext2_stati	ext2_fs.c	/^void ext2_stati(struct inode *ino, struct stat *statStruct){return;}$/;"	f
 ext2_superblock	ext2_fs.h	/^struct ext2_superblock {$/;"	s
-ext2fs_inode_ops	ext2_fs.c	/^struct inode_operations ext2fs_inode_ops = {$/;"	v	typeref:struct:inode_operations
+ext2_writei	ext2_fs.c	/^int ext2_writei(struct inode *ino, char *name, uint inum, uint num){$/;"	f
+ext2fs_addrs	ext2_fs.h	/^struct ext2fs_addrs {$/;"	s
 fd	sh.c	/^  int fd;$/;"	m	struct:redircmd	file:
 fdalloc	sysfile.c	/^fdalloc(struct file *f)$/;"	f	file:
 feature	mp.h	/^  uint feature;                 \/\/ feature flags from CPUID instruction$/;"	m	struct:mpproc
 fetchint	syscall.c	/^fetchint(uint addr, int *ip)$/;"	f
 fetchstr	syscall.c	/^fetchstr(uint addr, char **pp)$/;"	f
-file	file.c	/^  struct file file[NFILE];$/;"	m	struct:__anon4	typeref:struct:__anon4::file	file:
+file	file.c	/^  struct file file[NFILE];$/;"	m	struct:__anon12	typeref:struct:__anon12::file	file:
 file	file.h	/^struct file {$/;"	s
 file	sh.c	/^  char *file;$/;"	m	struct:redircmd	file:
+file_type	ext2_fs.h	/^	uchar	file_type;$/;"	m	struct:ext2_dir_entry_2
 filealloc	file.c	/^filealloc(void)$/;"	f
 fileclose	file.c	/^fileclose(struct file *f)$/;"	f
 filedup	file.c	/^filedup(struct file *f)$/;"	f
@@ -498,7 +524,7 @@ fourteen	usertests.c	/^fourteen(void)$/;"	f
 free	umalloc.c	/^free(void *ap)$/;"	f
 freeblock	mkfs.c	/^uint freeblock;$/;"	v
 freeinode	mkfs.c	/^uint freeinode = 1;$/;"	v
-freelist	kalloc.c	/^  struct run *freelist;$/;"	m	struct:__anon7	typeref:struct:__anon7::run	file:
+freelist	kalloc.c	/^  struct run *freelist;$/;"	m	struct:__anon15	typeref:struct:__anon15::run	file:
 freep	umalloc.c	/^static Header *freep;$/;"	v	file:
 freerange	kalloc.c	/^freerange(void *vstart, void *vend)$/;"	f
 freevm	vm.c	/^freevm(pde_t *pgdir)$/;"	f
@@ -506,7 +532,7 @@ fs	mmu.h	/^  ushort fs;$/;"	m	struct:taskstate
 fs	x86.h	/^  ushort fs;$/;"	m	struct:trapframe
 fsfd	mkfs.c	/^int fsfd;$/;"	v
 fsfull	usertests.c	/^fsfull()$/;"	f
-ftable	file.c	/^} ftable;$/;"	v	typeref:struct:__anon4
+ftable	file.c	/^} ftable;$/;"	v	typeref:struct:__anon12
 g	mmu.h	/^  uint g : 1;          \/\/ Granularity: limit scaled by 4K when set$/;"	m	struct:segdesc
 gatedesc	mmu.h	/^struct gatedesc {$/;"	s
 gdt	bootasm.S	/^gdt:$/;"	l
@@ -522,6 +548,13 @@ grep	grep.c	/^grep(char *pattern, int fd)$/;"	f
 growproc	proc.c	/^growproc(int n)$/;"	f
 gs	mmu.h	/^  ushort gs;$/;"	m	struct:taskstate
 gs	x86.h	/^  ushort gs;$/;"	m	struct:trapframe
+h_i_author	ext2_fs.h	/^			uint	h_i_author;$/;"	m	struct:ext2_inode::__anon8::__anon10
+h_i_frag	ext2_fs.h	/^			uchar	h_i_frag;	\/* Fragment number *\/$/;"	m	struct:ext2_inode::__anon8::__anon10
+h_i_fsize	ext2_fs.h	/^			uchar	h_i_fsize;	\/* Fragment size *\/$/;"	m	struct:ext2_inode::__anon8::__anon10
+h_i_gid_high	ext2_fs.h	/^			ushort	h_i_gid_high;$/;"	m	struct:ext2_inode::__anon8::__anon10
+h_i_mode_high	ext2_fs.h	/^			ushort	h_i_mode_high;$/;"	m	struct:ext2_inode::__anon8::__anon10
+h_i_translator	ext2_fs.h	/^			uint  h_i_translator;$/;"	m	struct:ext2_inode::__anon4::__anon6
+h_i_uid_high	ext2_fs.h	/^			ushort	h_i_uid_high;$/;"	m	struct:ext2_inode::__anon8::__anon10
 havedisk1	ide.c	/^static int havedisk1;$/;"	v	file:
 havedisk2	ide.c	/^static int havedisk2;$/;"	v	file:
 head	bio.c	/^  struct buf head;$/;"	m	struct:__anon1	typeref:struct:__anon1::buf	file:
@@ -529,11 +562,30 @@ header	umalloc.c	/^union header {$/;"	u	file:
 holding	spinlock.c	/^holding(struct spinlock *lock)$/;"	f
 holdingsleep	sleeplock.c	/^holdingsleep(struct sleeplock *lk)$/;"	f
 hour	date.h	/^  uint hour;$/;"	m	struct:rtcdate
-ialloc	file.h	/^	struct inode*   (*ialloc)(uint, short);$/;"	m	struct:inode_operations	typeref:struct:inode_operations::ialloc
+hurd1	ext2_fs.h	/^		} hurd1;$/;"	m	union:ext2_inode::__anon4	typeref:struct:ext2_inode::__anon4::__anon6
+hurd2	ext2_fs.h	/^		} hurd2;$/;"	m	union:ext2_inode::__anon8	typeref:struct:ext2_inode::__anon8::__anon10
+i_atime	ext2_fs.h	/^	uint	i_atime;	\/* Access time *\/$/;"	m	struct:ext2_inode
+i_block	ext2_fs.h	/^	uint	i_block[EXT2_N_BLOCKS];\/* Pointers to blocks *\/$/;"	m	struct:ext2_inode
+i_blocks	ext2_fs.h	/^	uint	i_blocks;	\/* Blocks count *\/$/;"	m	struct:ext2_inode
+i_ctime	ext2_fs.h	/^	uint	i_ctime;	\/* Creation time *\/$/;"	m	struct:ext2_inode
+i_dir_acl	ext2_fs.h	/^	uint	i_dir_acl;	\/* Directory ACL *\/$/;"	m	struct:ext2_inode
+i_dtime	ext2_fs.h	/^	uint	i_dtime;	\/* Deletion Time *\/$/;"	m	struct:ext2_inode
+i_faddr	ext2_fs.h	/^	uint	i_faddr;	\/* Fragment address *\/$/;"	m	struct:ext2_inode
+i_file_acl	ext2_fs.h	/^	uint	i_file_acl;	\/* File ACL *\/$/;"	m	struct:ext2_inode
+i_flags	ext2_fs.h	/^	uint	i_flags;	\/* File flags *\/$/;"	m	struct:ext2_inode
+i_generation	ext2_fs.h	/^	uint	i_generation;	\/* File version (for NFS) *\/$/;"	m	struct:ext2_inode
+i_gid	ext2_fs.h	/^	ushort	i_gid;		\/* Low 16 bits of Group Id *\/$/;"	m	struct:ext2_inode
+i_links_count	ext2_fs.h	/^	ushort	i_links_count;	\/* Links count *\/$/;"	m	struct:ext2_inode
+i_mode	ext2_fs.h	/^	ushort	i_mode;		\/* File mode *\/$/;"	m	struct:ext2_inode
+i_mtime	ext2_fs.h	/^	uint	i_mtime;	\/* Modification time *\/$/;"	m	struct:ext2_inode
+i_pad1	ext2_fs.h	/^			ushort	i_pad1;$/;"	m	struct:ext2_inode::__anon8::__anon9
+i_size	ext2_fs.h	/^	uint	i_size;		\/* Size in bytes *\/$/;"	m	struct:ext2_inode
+i_uid	ext2_fs.h	/^	ushort	i_uid;		\/* Low 16 bits of Owner Uid *\/$/;"	m	struct:ext2_inode
+ialloC	file.h	/^	struct inode*   (*ialloC)(uint, short);$/;"	m	struct:inode_operations	typeref:struct:inode_operations::ialloC
 ialloc	fs.c	/^ialloc(uint dev, short type)$/;"	f
 ialloc	mkfs.c	/^ialloc(ushort type)$/;"	f
 iappend	mkfs.c	/^iappend(uint inum, void *xp, int n)$/;"	f
-icache	fs.c	/^} icache;$/;"	v	typeref:struct:__anon6
+icache	fs.c	/^} icache;$/;"	v	typeref:struct:__anon14
 ideinit	ide.c	/^ideinit(void)$/;"	f
 ideinit	memide.c	/^ideinit(void)$/;"	f
 ideintr	ide.c	/^ideintr(int flag)$/;"	f
@@ -548,9 +600,9 @@ idt	trap.c	/^struct gatedesc idt[256];$/;"	v	typeref:struct:gatedesc
 idtinit	trap.c	/^idtinit(void)$/;"	f
 idup	fs.c	/^idup(struct inode *ip)$/;"	f
 iget	fs.c	/^iget(uint dev, uint inum)$/;"	f	file:
-iinit	file.h	/^	void            (*iinit)(int dev);$/;"	m	struct:inode_operations
+iiniT	file.h	/^	void            (*iiniT)(int);$/;"	m	struct:inode_operations
 iinit	fs.c	/^iinit(int dev)$/;"	f
-ilock	file.h	/^	void            (*ilock)(struct inode*);$/;"	m	struct:inode_operations
+ilocK	file.h	/^	void            (*ilocK)(struct inode*);$/;"	m	struct:inode_operations
 ilock	fs.c	/^ilock(struct inode *ip)$/;"	f
 imcrp	mp.h	/^  uchar imcrp;$/;"	m	struct:mp
 inb	x86.h	/^inb(ushort port)$/;"	f
@@ -561,8 +613,9 @@ initproc	proc.c	/^static struct proc *initproc;$/;"	v	typeref:struct:proc	file:
 initsleeplock	sleeplock.c	/^initsleeplock(struct sleeplock *lk, char *name)$/;"	f
 inituvm	vm.c	/^inituvm(pde_t *pgdir, char *init, uint sz)$/;"	f
 ino	stat.h	/^  uint ino;    \/\/ Inode number$/;"	m	struct:stat
+inode	ext2_fs.h	/^	uint	inode;			\/* Inode number *\/$/;"	m	struct:ext2_dir_entry_2
 inode	file.h	/^struct inode {$/;"	s
-inode	fs.c	/^  struct inode inode[NINODE];$/;"	m	struct:__anon6	typeref:struct:__anon6::inode	file:
+inode	fs.c	/^  struct inode inode[NINODE];$/;"	m	struct:__anon14	typeref:struct:__anon14::inode	file:
 inode_operations	file.h	/^struct inode_operations {$/;"	s
 inodestart	fs.h	/^  uint inodestart;   \/\/ Block number of first inode block$/;"	m	struct:superblock
 input	console.c	/^} input;$/;"	v	typeref:struct:__anon3
@@ -581,17 +634,17 @@ ioapicwrite	ioapic.c	/^ioapicwrite(int reg, uint data)$/;"	f	file:
 iomb	mmu.h	/^  ushort iomb;       \/\/ I\/O map base address$/;"	m	struct:taskstate
 iops	file.h	/^  struct inode_operations *iops; \/\/ pointer to inode_operations$/;"	m	struct:inode	typeref:struct:inode::inode_operations
 ip	file.h	/^  struct inode *ip;$/;"	m	struct:file	typeref:struct:file::inode
-iput	file.h	/^	void            (*iput)(struct inode*);$/;"	m	struct:inode_operations
+ipuT	file.h	/^	void            (*ipuT)(struct inode*);$/;"	m	struct:inode_operations
 iput	fs.c	/^iput(struct inode *ip)$/;"	f
 iputtest	usertests.c	/^iputtest(void)$/;"	f
 iref	usertests.c	/^iref(void)$/;"	f
 isdirempty	sysfile.c	/^isdirempty(struct inode *dp)$/;"	f	file:
 itrunc	fs.c	/^itrunc(struct inode *ip)$/;"	f	file:
-iunlock	file.h	/^	void            (*iunlock)(struct inode*);$/;"	m	struct:inode_operations
+iunlocK	file.h	/^	void            (*iunlocK)(struct inode*);$/;"	m	struct:inode_operations
 iunlock	fs.c	/^iunlock(struct inode *ip)$/;"	f
-iunlockput	file.h	/^	void            (*iunlockput)(struct inode*);$/;"	m	struct:inode_operations
+iunlockpuT	file.h	/^	void            (*iunlockpuT)(struct inode*);$/;"	m	struct:inode_operations
 iunlockput	fs.c	/^iunlockput(struct inode *ip)$/;"	f
-iupdate	file.h	/^	void            (*iupdate)(struct inode*);$/;"	m	struct:inode_operations
+iupdatE	file.h	/^	void            (*iupdatE)(struct inode*);$/;"	m	struct:inode_operations
 iupdate	fs.c	/^iupdate(struct inode *ip)$/;"	f
 kalloc	kalloc.c	/^kalloc(void)$/;"	f
 kbdgetc	kbd.c	/^kbdgetc(void)$/;"	f
@@ -603,10 +656,16 @@ kinit1	kalloc.c	/^kinit1(void *vstart, void *vend)$/;"	f
 kinit2	kalloc.c	/^kinit2(void *vstart, void *vend)$/;"	f
 kmap	vm.c	/^static struct kmap {$/;"	s	file:
 kmap	vm.c	/^} kmap[] = {$/;"	v	typeref:struct:kmap	file:
-kmem	kalloc.c	/^} kmem;$/;"	v	typeref:struct:__anon7
+kmem	kalloc.c	/^} kmem;$/;"	v	typeref:struct:__anon15
 kpgdir	vm.c	/^pde_t *kpgdir;  \/\/ for use in scheduler()$/;"	v
 kstack	proc.h	/^  char *kstack;                \/\/ Bottom of kernel stack for this process$/;"	m	struct:proc
 kvmalloc	vm.c	/^kvmalloc(void)$/;"	f
+l_i_frag	ext2_fs.h	/^			ushort	l_i_frag;	\/* Fragment number *\/$/;"	m	struct:ext2_inode::__anon8::__anon9
+l_i_fsize	ext2_fs.h	/^			ushort	l_i_fsize;	\/* Fragment size *\/$/;"	m	struct:ext2_inode::__anon8::__anon9
+l_i_gid_high	ext2_fs.h	/^			ushort	l_i_gid_high;	\/* were reserved2[0] *\/$/;"	m	struct:ext2_inode::__anon8::__anon9
+l_i_reserved1	ext2_fs.h	/^			uint  l_i_reserved1;$/;"	m	struct:ext2_inode::__anon4::__anon5
+l_i_reserved2	ext2_fs.h	/^			uint	l_i_reserved2;$/;"	m	struct:ext2_inode::__anon8::__anon9
+l_i_uid_high	ext2_fs.h	/^			ushort	l_i_uid_high;	\/* these 2 fields    *\/$/;"	m	struct:ext2_inode::__anon8::__anon9
 lapic	lapic.c	/^volatile uint *lapic;  \/\/ Initialized in mp.c$/;"	v
 lapicaddr	mp.h	/^  uint *lapicaddr;              \/\/ address of local APIC$/;"	m	struct:mpconf
 lapiceoi	lapic.c	/^lapiceoi(void)$/;"	f
@@ -628,6 +687,8 @@ lim_19_16	mmu.h	/^  uint lim_19_16 : 4;  \/\/ High bits of segment limit$/;"	m	s
 link	mmu.h	/^  uint link;         \/\/ Old ts selector$/;"	m	struct:taskstate
 linktest	usertests.c	/^linktest(void)$/;"	f
 linkunlink	usertests.c	/^linkunlink()$/;"	f
+linux1	ext2_fs.h	/^		} linux1;$/;"	m	union:ext2_inode::__anon4	typeref:struct:ext2_inode::__anon4::__anon5
+linux2	ext2_fs.h	/^		} linux2;$/;"	m	union:ext2_inode::__anon8	typeref:struct:ext2_inode::__anon8::__anon9
 listcmd	sh.c	/^listcmd(struct cmd *left, struct cmd *right)$/;"	f
 listcmd	sh.c	/^struct listcmd {$/;"	s	file:
 lk	sleeplock.h	/^  struct spinlock lk; \/\/ spinlock protecting this sleep lock$/;"	m	struct:sleeplock	typeref:struct:sleeplock::spinlock
@@ -636,13 +697,13 @@ loaduvm	vm.c	/^loaduvm(pde_t *pgdir, char *addr, struct inode *ip, uint offset, 
 lock	bio.c	/^  struct spinlock lock;$/;"	m	struct:__anon1	typeref:struct:__anon1::spinlock	file:
 lock	buf.h	/^  struct sleeplock lock;$/;"	m	struct:buf	typeref:struct:buf::sleeplock
 lock	console.c	/^  struct spinlock lock;$/;"	m	struct:__anon2	typeref:struct:__anon2::spinlock	file:
-lock	file.c	/^  struct spinlock lock;$/;"	m	struct:__anon4	typeref:struct:__anon4::spinlock	file:
+lock	file.c	/^  struct spinlock lock;$/;"	m	struct:__anon12	typeref:struct:__anon12::spinlock	file:
 lock	file.h	/^  struct sleeplock lock; \/\/ protects everything below here$/;"	m	struct:inode	typeref:struct:inode::sleeplock
-lock	fs.c	/^  struct spinlock lock;$/;"	m	struct:__anon6	typeref:struct:__anon6::spinlock	file:
-lock	kalloc.c	/^  struct spinlock lock;$/;"	m	struct:__anon7	typeref:struct:__anon7::spinlock	file:
+lock	fs.c	/^  struct spinlock lock;$/;"	m	struct:__anon14	typeref:struct:__anon14::spinlock	file:
+lock	kalloc.c	/^  struct spinlock lock;$/;"	m	struct:__anon15	typeref:struct:__anon15::spinlock	file:
 lock	log.c	/^  struct spinlock lock;$/;"	m	struct:log	typeref:struct:log::spinlock	file:
 lock	pipe.c	/^  struct spinlock lock;$/;"	m	struct:pipe	typeref:struct:pipe::spinlock	file:
-lock	proc.c	/^  struct spinlock lock;$/;"	m	struct:__anon8	typeref:struct:__anon8::spinlock	file:
+lock	proc.c	/^  struct spinlock lock;$/;"	m	struct:__anon16	typeref:struct:__anon16::spinlock	file:
 locked	sleeplock.h	/^  uint locked;       \/\/ Is the lock held?$/;"	m	struct:sleeplock
 locked	spinlock.h	/^  uint locked;       \/\/ Is the lock held?$/;"	m	struct:spinlock
 locking	console.c	/^  int locking;$/;"	m	struct:__anon2	file:
@@ -653,6 +714,11 @@ logheader	log.c	/^struct logheader {$/;"	s	file:
 logstart	fs.h	/^  uint logstart;     \/\/ Block number of first log block$/;"	m	struct:superblock
 ls	ls.c	/^ls(char *path)$/;"	f
 ltr	x86.h	/^ltr(ushort sel)$/;"	f
+m_i_frag	ext2_fs.h	/^			ushort	m_i_frag;	\/* Fragment number *\/$/;"	m	struct:ext2_inode::__anon8::__anon11
+m_i_fsize	ext2_fs.h	/^			ushort	m_i_fsize;	\/* Fragment size *\/$/;"	m	struct:ext2_inode::__anon8::__anon11
+m_i_reserved1	ext2_fs.h	/^			uint  m_i_reserved1;$/;"	m	struct:ext2_inode::__anon4::__anon7
+m_i_reserved2	ext2_fs.h	/^			uint	m_i_reserved2[2];$/;"	m	struct:ext2_inode::__anon8::__anon11
+m_pad1	ext2_fs.h	/^			ushort	m_pad1;$/;"	m	struct:ext2_inode::__anon8::__anon11
 machine	elf.h	/^  ushort machine;$/;"	m	struct:elfhdr
 magic	elf.h	/^  uint magic;  \/\/ must equal ELF_MAGIC$/;"	m	struct:elfhdr
 main	cat.c	/^main(int argc, char *argv[])$/;"	f
@@ -676,6 +742,8 @@ major	file.h	/^  short major;$/;"	m	struct:inode
 major	fs.h	/^  short major;          \/\/ Major device number (T_DEV only)$/;"	m	struct:dinode
 malloc	umalloc.c	/^malloc(uint nbytes)$/;"	f
 mappages	vm.c	/^mappages(pde_t *pgdir, void *va, uint size, uint pa, int perm)$/;"	f	file:
+masix1	ext2_fs.h	/^		} masix1;$/;"	m	union:ext2_inode::__anon4	typeref:struct:ext2_inode::__anon4::__anon7
+masix2	ext2_fs.h	/^		} masix2;$/;"	m	union:ext2_inode::__anon8	typeref:struct:ext2_inode::__anon8::__anon11
 match	grep.c	/^match(char *re, char *text)$/;"	f
 matchhere	grep.c	/^int matchhere(char *re, char *text)$/;"	f
 matchstar	grep.c	/^int matchstar(int c, char *re, char *text)$/;"	f
@@ -711,12 +779,14 @@ multiboot_header	entry.S	/^multiboot_header:$/;"	l
 mycpu	proc.c	/^mycpu(void)$/;"	f
 myproc	proc.c	/^myproc(void) {$/;"	f
 n	log.c	/^  int n;$/;"	m	struct:logheader	file:
+name	ext2_fs.h	/^	char	name[EXT2_NAME_LEN];	\/* File name *\/$/;"	m	struct:ext2_dir_entry_2
 name	fs.h	/^  char name[DIRSIZ];$/;"	m	struct:dirent
 name	proc.h	/^  char name[16];               \/\/ Process name (debugging)$/;"	m	struct:proc
 name	sleeplock.h	/^  char *name;        \/\/ Name of lock.$/;"	m	struct:sleeplock
 name	spinlock.h	/^  char *name;        \/\/ Name of lock.$/;"	m	struct:spinlock
 name	usertests.c	/^char name[3];$/;"	v
 name	usys.S	/^  name: \\$/;"	l
+name_len	ext2_fs.h	/^	uchar	name_len;		\/* Name length *\/$/;"	m	struct:ext2_dir_entry_2
 namecmp	fs.c	/^namecmp(const char *s, const char *t)$/;"	f
 namei	fs.c	/^namei(char *path)$/;"	f
 nameiparent	fs.c	/^nameiparent(char *path, char *name)$/;"	f
@@ -751,6 +821,8 @@ off_31_16	mmu.h	/^  uint off_31_16 : 16;  \/\/ high bits of offset in segment$/;
 ofile	proc.h	/^  struct file *ofile[NOFILE];  \/\/ Open files$/;"	m	struct:proc	typeref:struct:proc::file
 openiputtest	usertests.c	/^openiputtest(void)$/;"	f
 opentest	usertests.c	/^opentest(void)$/;"	f
+osd1	ext2_fs.h	/^	} osd1;				\/* OS dependent 1 *\/$/;"	m	struct:ext2_inode	typeref:union:ext2_inode::__anon4
+osd2	ext2_fs.h	/^	} osd2;				\/* OS dependent 2 *\/$/;"	m	struct:ext2_inode	typeref:union:ext2_inode::__anon8
 outb	x86.h	/^outb(ushort port, uchar data)$/;"	f
 outsl	x86.h	/^outsl(int port, const void *addr, int cnt)$/;"	f
 outstanding	log.c	/^  int outstanding; \/\/ how many FS sys calls are executing.$/;"	m	struct:log	file:
@@ -817,16 +889,16 @@ printf	forktest.c	/^printf(int fd, const char *s, ...)$/;"	f
 printf	printf.c	/^printf(int fd, const char *fmt, ...)$/;"	f
 printint	console.c	/^printint(int xx, int base, int sign)$/;"	f	file:
 printint	printf.c	/^printint(int fd, int xx, int base, int sgn)$/;"	f	file:
-proc	proc.c	/^  struct proc proc[NPROC];$/;"	m	struct:__anon8	typeref:struct:__anon8::proc	file:
+proc	proc.c	/^  struct proc proc[NPROC];$/;"	m	struct:__anon16	typeref:struct:__anon16::proc	file:
 proc	proc.h	/^  struct proc *proc;           \/\/ The process running on this cpu or null$/;"	m	struct:cpu	typeref:struct:cpu::proc
 proc	proc.h	/^struct proc {$/;"	s
 procdump	proc.c	/^procdump(void)$/;"	f
 procstate	proc.h	/^enum procstate { UNUSED, EMBRYO, SLEEPING, RUNNABLE, RUNNING, ZOMBIE };$/;"	g
 product	mp.h	/^  uchar product[20];            \/\/ product id$/;"	m	struct:mpconf
 proghdr	elf.h	/^struct proghdr {$/;"	s
-ptable	proc.c	/^} ptable;$/;"	v	typeref:struct:__anon8
+ptable	proc.c	/^} ptable;$/;"	v	typeref:struct:__anon16
 pte_t	mmu.h	/^typedef uint pte_t;$/;"	t
-ptr	umalloc.c	/^    union header *ptr;$/;"	m	struct:header::__anon9	typeref:union:header::__anon9::header	file:
+ptr	umalloc.c	/^    union header *ptr;$/;"	m	struct:header::__anon17	typeref:union:header::__anon17::header	file:
 pushcli	spinlock.c	/^pushcli(void)$/;"	f
 putc	printf.c	/^putc(int fd, char c)$/;"	f	file:
 qnext	buf.h	/^  struct buf *qnext; \/\/ disk queue$/;"	m	struct:buf	typeref:struct:buf::buf
@@ -835,15 +907,16 @@ rand	usertests.c	/^rand()$/;"	f
 randstate	usertests.c	/^unsigned long randstate = 1;$/;"	v
 rcr2	x86.h	/^rcr2(void)$/;"	f
 read	file.h	/^  int (*read)(struct inode*, char*, int);$/;"	m	struct:devsw
+readI	file.h	/^	int             (*readI)(struct inode*, char*, uint, uint);$/;"	m	struct:inode_operations
 read_head	log.c	/^read_head(void)$/;"	f	file:
 readable	file.h	/^  char readable;$/;"	m	struct:file
 readeflags	x86.h	/^readeflags(void)$/;"	f
-readi	file.h	/^	int             (*readi)(struct inode*, char*, uint, uint);$/;"	m	struct:inode_operations
 readi	fs.c	/^readi(struct inode *ip, char *dst, uint off, uint n)$/;"	f
 readopen	pipe.c	/^  int readopen;   \/\/ read fd is still open$/;"	m	struct:pipe	file:
 readsb	fs.c	/^readsb(int dev, struct superblock *sb)$/;"	f
 readsect	bootmain.c	/^readsect(void *dst, uint offset)$/;"	f
 readseg	bootmain.c	/^readseg(uchar* pa, uint count, uint offset)$/;"	f
+rec_len	ext2_fs.h	/^	ushort	rec_len;		\/* Directory entry length *\/$/;"	m	struct:ext2_dir_entry_2
 recover_from_log	log.c	/^recover_from_log(void)$/;"	f	file:
 redircmd	sh.c	/^redircmd(struct cmd *subcmd, char *file, char *efile, int mode, int fd)$/;"	f
 redircmd	sh.c	/^struct redircmd {$/;"	s	file:
@@ -868,58 +941,58 @@ run	kalloc.c	/^struct run {$/;"	s	file:
 runcmd	sh.c	/^runcmd(struct cmd *cmd)$/;"	f
 s	mmu.h	/^  uint s : 1;           \/\/ must be 0 (system)$/;"	m	struct:gatedesc
 s	mmu.h	/^  uint s : 1;          \/\/ 0 = system, 1 = application$/;"	m	struct:segdesc
-s	umalloc.c	/^  } s;$/;"	m	union:header	typeref:struct:header::__anon9	file:
-s_algorithm_usage_bitmap	ext2_fs.h	/^  uint32 s_algorithm_usage_bitmap; \/* For compression *\/$/;"	m	struct:ext2_superblock
-s_block_group_nr	ext2_fs.h	/^  uint16 s_block_group_nr;   \/* block group # of this superblock *\/$/;"	m	struct:ext2_superblock
-s_blocks_count	ext2_fs.h	/^  uint32 s_blocks_count;    \/* Blocks count *\/$/;"	m	struct:ext2_superblock
-s_blocks_per_group	ext2_fs.h	/^  uint32 s_blocks_per_group;  \/* # Blocks per group *\/$/;"	m	struct:ext2_superblock
-s_checkinterval	ext2_fs.h	/^  uint32 s_checkinterval;  \/* max. time between checks *\/$/;"	m	struct:ext2_superblock
-s_creator_os	ext2_fs.h	/^  uint32 s_creator_os;    \/* OS *\/$/;"	m	struct:ext2_superblock
-s_def_hash_version	ext2_fs.h	/^  uint8  s_def_hash_version;  \/* Default hash version to use *\/$/;"	m	struct:ext2_superblock
-s_def_resgid	ext2_fs.h	/^  uint16 s_def_resgid;    \/* Default gid for reserved blocks *\/$/;"	m	struct:ext2_superblock
-s_def_resuid	ext2_fs.h	/^  uint16 s_def_resuid;    \/* Default uid for reserved blocks *\/$/;"	m	struct:ext2_superblock
-s_default_mount_opts	ext2_fs.h	/^  uint32 s_default_mount_opts;$/;"	m	struct:ext2_superblock
-s_errors	ext2_fs.h	/^  uint16 s_errors;    \/* Behaviour when detecting errors *\/$/;"	m	struct:ext2_superblock
-s_feature_compat	ext2_fs.h	/^  uint32 s_feature_compat;   \/* compatible feature set *\/$/;"	m	struct:ext2_superblock
-s_feature_incompat	ext2_fs.h	/^  uint32 s_feature_incompat;   \/* incompatible feature set *\/$/;"	m	struct:ext2_superblock
-s_feature_ro_compat	ext2_fs.h	/^  uint32 s_feature_ro_compat;   \/* readonly-compatible feature set *\/$/;"	m	struct:ext2_superblock
-s_first_data_block	ext2_fs.h	/^  uint32 s_first_data_block;  \/* First Data Block *\/$/;"	m	struct:ext2_superblock
-s_first_ino	ext2_fs.h	/^  uint32 s_first_ino;     \/* First non-reserved inode *\/$/;"	m	struct:ext2_superblock
-s_first_meta_bg	ext2_fs.h	/^  uint32 s_first_meta_bg;   \/* First metablock block group *\/$/;"	m	struct:ext2_superblock
-s_frags_per_group	ext2_fs.h	/^  uint32 s_frags_per_group;  \/* # Fragments per group *\/$/;"	m	struct:ext2_superblock
-s_free_blocks_count	ext2_fs.h	/^  uint32 s_free_blocks_count;  \/* Free blocks count *\/$/;"	m	struct:ext2_superblock
-s_free_inodes_count	ext2_fs.h	/^  uint32 s_free_inodes_count;  \/* Free inodes count *\/$/;"	m	struct:ext2_superblock
-s_hash_seed	ext2_fs.h	/^  uint32 s_hash_seed[4];    \/* HTREE hash seed *\/$/;"	m	struct:ext2_superblock
-s_inode_size	ext2_fs.h	/^  uint16 s_inode_size;     \/* size of inode structure *\/$/;"	m	struct:ext2_superblock
-s_inodes_count	ext2_fs.h	/^  uint32 s_inodes_count;    \/* Inodes count *\/$/;"	m	struct:ext2_superblock
-s_inodes_per_group	ext2_fs.h	/^  uint32 s_inodes_per_group;  \/* # Inodes per group *\/$/;"	m	struct:ext2_superblock
-s_journal_dev	ext2_fs.h	/^  uint32 s_journal_dev;    \/* device number of journal file *\/$/;"	m	struct:ext2_superblock
-s_journal_inum	ext2_fs.h	/^  uint32 s_journal_inum;    \/* inode number of journal file *\/$/;"	m	struct:ext2_superblock
-s_journal_uuid	ext2_fs.h	/^  uint8  s_journal_uuid[16];  \/* uuid of journal superblock *\/$/;"	m	struct:ext2_superblock
+s	umalloc.c	/^  } s;$/;"	m	union:header	typeref:struct:header::__anon17	file:
+s_algorithm_usage_bitmap	ext2_fs.h	/^  uint s_algorithm_usage_bitmap; \/* For compression *\/$/;"	m	struct:ext2_superblock
+s_block_group_nr	ext2_fs.h	/^  ushort s_block_group_nr;   \/* block group # of this superblock *\/$/;"	m	struct:ext2_superblock
+s_blocks_count	ext2_fs.h	/^  uint s_blocks_count;    \/* Blocks count *\/$/;"	m	struct:ext2_superblock
+s_blocks_per_group	ext2_fs.h	/^  uint s_blocks_per_group;  \/* # Blocks per group *\/$/;"	m	struct:ext2_superblock
+s_checkinterval	ext2_fs.h	/^  uint s_checkinterval;  \/* max. time between checks *\/$/;"	m	struct:ext2_superblock
+s_creator_os	ext2_fs.h	/^  uint s_creator_os;    \/* OS *\/$/;"	m	struct:ext2_superblock
+s_def_hash_version	ext2_fs.h	/^  uchar  s_def_hash_version;  \/* Default hash version to use *\/$/;"	m	struct:ext2_superblock
+s_def_resgid	ext2_fs.h	/^  ushort s_def_resgid;    \/* Default gid for reserved blocks *\/$/;"	m	struct:ext2_superblock
+s_def_resuid	ext2_fs.h	/^  ushort s_def_resuid;    \/* Default uid for reserved blocks *\/$/;"	m	struct:ext2_superblock
+s_default_mount_opts	ext2_fs.h	/^  uint s_default_mount_opts;$/;"	m	struct:ext2_superblock
+s_errors	ext2_fs.h	/^  ushort s_errors;    \/* Behaviour when detecting errors *\/$/;"	m	struct:ext2_superblock
+s_feature_compat	ext2_fs.h	/^  uint s_feature_compat;   \/* compatible feature set *\/$/;"	m	struct:ext2_superblock
+s_feature_incompat	ext2_fs.h	/^  uint s_feature_incompat;   \/* incompatible feature set *\/$/;"	m	struct:ext2_superblock
+s_feature_ro_compat	ext2_fs.h	/^  uint s_feature_ro_compat;   \/* readonly-compatible feature set *\/$/;"	m	struct:ext2_superblock
+s_first_data_block	ext2_fs.h	/^  uint s_first_data_block;  \/* First Data Block *\/$/;"	m	struct:ext2_superblock
+s_first_ino	ext2_fs.h	/^  uint s_first_ino;     \/* First non-reserved inode *\/$/;"	m	struct:ext2_superblock
+s_first_meta_bg	ext2_fs.h	/^  uint s_first_meta_bg;   \/* First metablock block group *\/$/;"	m	struct:ext2_superblock
+s_frags_per_group	ext2_fs.h	/^  uint s_frags_per_group;  \/* # Fragments per group *\/$/;"	m	struct:ext2_superblock
+s_free_blocks_count	ext2_fs.h	/^  uint s_free_blocks_count;  \/* Free blocks count *\/$/;"	m	struct:ext2_superblock
+s_free_inodes_count	ext2_fs.h	/^  uint s_free_inodes_count;  \/* Free inodes count *\/$/;"	m	struct:ext2_superblock
+s_hash_seed	ext2_fs.h	/^  uint s_hash_seed[4];    \/* HTREE hash seed *\/$/;"	m	struct:ext2_superblock
+s_inode_size	ext2_fs.h	/^  ushort s_inode_size;     \/* size of inode structure *\/$/;"	m	struct:ext2_superblock
+s_inodes_count	ext2_fs.h	/^  uint s_inodes_count;    \/* Inodes count *\/$/;"	m	struct:ext2_superblock
+s_inodes_per_group	ext2_fs.h	/^  uint s_inodes_per_group;  \/* # Inodes per group *\/$/;"	m	struct:ext2_superblock
+s_journal_dev	ext2_fs.h	/^  uint s_journal_dev;    \/* device number of journal file *\/$/;"	m	struct:ext2_superblock
+s_journal_inum	ext2_fs.h	/^  uint s_journal_inum;    \/* inode number of journal file *\/$/;"	m	struct:ext2_superblock
+s_journal_uuid	ext2_fs.h	/^  uchar  s_journal_uuid[16];  \/* uuid of journal superblock *\/$/;"	m	struct:ext2_superblock
 s_last_mounted	ext2_fs.h	/^  char   s_last_mounted[64];   \/* directory where last mounted *\/$/;"	m	struct:ext2_superblock
-s_last_orphan	ext2_fs.h	/^  uint32 s_last_orphan;    \/* start of list of inodes to delete *\/$/;"	m	struct:ext2_superblock
-s_lastcheck	ext2_fs.h	/^  uint32 s_lastcheck;    \/* time of last check *\/$/;"	m	struct:ext2_superblock
-s_log_block_size	ext2_fs.h	/^  uint32 s_log_block_size;  \/* Block size *\/$/;"	m	struct:ext2_superblock
-s_log_frag_size	ext2_fs.h	/^  uint32 s_log_frag_size;  \/* Fragment size *\/$/;"	m	struct:ext2_superblock
-s_magic	ext2_fs.h	/^  uint16 s_magic;    \/* Magic signature *\/$/;"	m	struct:ext2_superblock
-s_max_mnt_count	ext2_fs.h	/^  uint16 s_max_mnt_count;  \/* Maximal mount count *\/$/;"	m	struct:ext2_superblock
-s_minor_rev_level	ext2_fs.h	/^  uint16 s_minor_rev_level;   \/* minor revision level *\/$/;"	m	struct:ext2_superblock
-s_mnt_count	ext2_fs.h	/^  uint16 s_mnt_count;    \/* Mount count *\/$/;"	m	struct:ext2_superblock
-s_mtime	ext2_fs.h	/^  uint32 s_mtime;    \/* Mount time *\/$/;"	m	struct:ext2_superblock
-s_padding1	ext2_fs.h	/^  uint16 s_padding1;$/;"	m	struct:ext2_superblock
-s_prealloc_blocks	ext2_fs.h	/^  uint8  s_prealloc_blocks;  \/* Nr of blocks to try to preallocate*\/$/;"	m	struct:ext2_superblock
-s_prealloc_dir_blocks	ext2_fs.h	/^  uint8  s_prealloc_dir_blocks;  \/* Nr to preallocate for dirs *\/$/;"	m	struct:ext2_superblock
-s_r_blocks_count	ext2_fs.h	/^  uint32 s_r_blocks_count;  \/* Reserved blocks count *\/$/;"	m	struct:ext2_superblock
-s_reserved	ext2_fs.h	/^  uint32 s_reserved[190];  \/* Padding to the end of the block *\/$/;"	m	struct:ext2_superblock
-s_reserved_char_pad	ext2_fs.h	/^  uint8  s_reserved_char_pad;$/;"	m	struct:ext2_superblock
-s_reserved_word_pad	ext2_fs.h	/^  uint16 s_reserved_word_pad;$/;"	m	struct:ext2_superblock
-s_rev_level	ext2_fs.h	/^  uint32 s_rev_level;    \/* Revision level *\/$/;"	m	struct:ext2_superblock
-s_state	ext2_fs.h	/^  uint16 s_state;    \/* File system state *\/$/;"	m	struct:ext2_superblock
-s_uuid	ext2_fs.h	/^  uint8  s_uuid[16];    \/* 128-bit uuid for volume *\/$/;"	m	struct:ext2_superblock
+s_last_orphan	ext2_fs.h	/^  uint s_last_orphan;    \/* start of list of inodes to delete *\/$/;"	m	struct:ext2_superblock
+s_lastcheck	ext2_fs.h	/^  uint s_lastcheck;    \/* time of last check *\/$/;"	m	struct:ext2_superblock
+s_log_block_size	ext2_fs.h	/^  uint s_log_block_size;  \/* Block size *\/$/;"	m	struct:ext2_superblock
+s_log_frag_size	ext2_fs.h	/^  uint s_log_frag_size;  \/* Fragment size *\/$/;"	m	struct:ext2_superblock
+s_magic	ext2_fs.h	/^  ushort s_magic;    \/* Magic signature *\/$/;"	m	struct:ext2_superblock
+s_max_mnt_count	ext2_fs.h	/^  ushort s_max_mnt_count;  \/* Maximal mount count *\/$/;"	m	struct:ext2_superblock
+s_minor_rev_level	ext2_fs.h	/^  ushort s_minor_rev_level;   \/* minor revision level *\/$/;"	m	struct:ext2_superblock
+s_mnt_count	ext2_fs.h	/^  ushort s_mnt_count;    \/* Mount count *\/$/;"	m	struct:ext2_superblock
+s_mtime	ext2_fs.h	/^  uint s_mtime;    \/* Mount time *\/$/;"	m	struct:ext2_superblock
+s_padding1	ext2_fs.h	/^  ushort s_padding1;$/;"	m	struct:ext2_superblock
+s_prealloc_blocks	ext2_fs.h	/^  uchar  s_prealloc_blocks;  \/* Nr of blocks to try to preallocate*\/$/;"	m	struct:ext2_superblock
+s_prealloc_dir_blocks	ext2_fs.h	/^  uchar  s_prealloc_dir_blocks;  \/* Nr to preallocate for dirs *\/$/;"	m	struct:ext2_superblock
+s_r_blocks_count	ext2_fs.h	/^  uint s_r_blocks_count;  \/* Reserved blocks count *\/$/;"	m	struct:ext2_superblock
+s_reserved	ext2_fs.h	/^  uint s_reserved[190];  \/* Padding to the end of the block *\/$/;"	m	struct:ext2_superblock
+s_reserved_char_pad	ext2_fs.h	/^  uchar  s_reserved_char_pad;$/;"	m	struct:ext2_superblock
+s_reserved_word_pad	ext2_fs.h	/^  ushort s_reserved_word_pad;$/;"	m	struct:ext2_superblock
+s_rev_level	ext2_fs.h	/^  uint s_rev_level;    \/* Revision level *\/$/;"	m	struct:ext2_superblock
+s_state	ext2_fs.h	/^  ushort s_state;    \/* File system state *\/$/;"	m	struct:ext2_superblock
+s_uuid	ext2_fs.h	/^  uchar  s_uuid[16];    \/* 128-bit uuid for volume *\/$/;"	m	struct:ext2_superblock
 s_volume_name	ext2_fs.h	/^  char   s_volume_name[16];   \/* volume name *\/$/;"	m	struct:ext2_superblock
-s_wtime	ext2_fs.h	/^  uint32 s_wtime;    \/* Write time *\/$/;"	m	struct:ext2_superblock
+s_wtime	ext2_fs.h	/^  uint s_wtime;    \/* Write time *\/$/;"	m	struct:ext2_superblock
 safestrcpy	string.c	/^safestrcpy(char *s, const char *t, int n)$/;"	f
-sb	fs.c	/^struct superblock sb; $/;"	v	typeref:struct:superblock
+sb	fs.c	/^struct superblock sb;$/;"	v	typeref:struct:superblock
 sb	mkfs.c	/^struct superblock sb;$/;"	v	typeref:struct:superblock
 sbrktest	usertests.c	/^sbrktest(void)$/;"	f
 sched	proc.c	/^sched(void)$/;"	f
@@ -944,8 +1017,8 @@ size	fs.h	/^  uint size;            \/\/ Size of file (bytes)$/;"	m	struct:dinod
 size	fs.h	/^  uint size;         \/\/ Size of file system image (blocks)$/;"	m	struct:superblock
 size	log.c	/^  int size;$/;"	m	struct:log	file:
 size	stat.h	/^  uint size;   \/\/ Size of file in bytes$/;"	m	struct:stat
-size	umalloc.c	/^    uint size;$/;"	m	struct:header::__anon9	file:
-skipelem	fs.c	/^skipelem(char *path, char *name)$/;"	f	file:
+size	umalloc.c	/^    uint size;$/;"	m	struct:header::__anon17	file:
+skipelem	fs.c	/^skipelem(char *path, char *name, uint dev)$/;"	f	file:
 sleep	proc.c	/^sleep(void *chan, struct spinlock *lk)$/;"	f
 sleeplock	sleeplock.h	/^struct sleeplock {$/;"	s
 specrev	mp.h	/^  uchar specrev;                \/\/ [14]$/;"	m	struct:mp
@@ -968,8 +1041,8 @@ startothers	main.c	/^startothers(void)$/;"	f	file:
 stat	mkfs.c	8;"	d	file:
 stat	stat.h	/^struct stat {$/;"	s
 stat	ulib.c	/^stat(const char *n, struct stat *st)$/;"	f
+statI	file.h	/^	void            (*statI)(struct inode*, struct stat*);$/;"	m	struct:inode_operations
 state	proc.h	/^  enum procstate state;        \/\/ Process state$/;"	m	struct:proc	typeref:enum:proc::procstate
-stati	file.h	/^	void            (*stati)(struct inode*, struct stat*);$/;"	m	struct:inode_operations
 stati	fs.c	/^stati(struct inode *ip, struct stat *st)$/;"	f
 static_assert	mkfs.c	15;"	d	file:
 stdout	usertests.c	/^int stdout = 1;$/;"	v
@@ -1028,7 +1101,7 @@ ts	proc.h	/^  struct taskstate ts;         \/\/ Used by x86 to find stack for in
 tvinit	trap.c	/^tvinit(void)$/;"	f
 type	elf.h	/^  uint type;$/;"	m	struct:proghdr
 type	elf.h	/^  ushort type;$/;"	m	struct:elfhdr
-type	file.h	/^  enum { FD_NONE, FD_PIPE, FD_INODE } type;$/;"	m	struct:file	typeref:enum:file::__anon5
+type	file.h	/^  enum { FD_NONE, FD_PIPE, FD_INODE } type;$/;"	m	struct:file	typeref:enum:file::__anon13
 type	file.h	/^  short type;         \/\/ copy of disk inode$/;"	m	struct:inode
 type	fs.h	/^  short type;           \/\/ File type$/;"	m	struct:dinode
 type	mmu.h	/^  uint type : 4;        \/\/ type(STS_{IG32,TG32})$/;"	m	struct:gatedesc
@@ -1049,16 +1122,15 @@ uartinit	uart.c	/^uartinit(void)$/;"	f
 uartintr	uart.c	/^uartintr(void)$/;"	f
 uartputc	uart.c	/^uartputc(int c)$/;"	f
 uchar	ext2_fs.h	/^typedef unsigned char  uchar;$/;"	t
+uchar	ext2_fs.h	/^typedef unsigned char uchar;$/;"	t
 uchar	types.h	/^typedef unsigned char  uchar;$/;"	t
 uint	ext2_fs.h	/^typedef unsigned int   uint;$/;"	t
+uint	ext2_fs.h	/^typedef unsigned int uint;$/;"	t
 uint	types.h	/^typedef unsigned int   uint;$/;"	t
-uint16	ext2_fs.h	/^typedef unsigned short uint16;$/;"	t
-uint32	ext2_fs.h	/^typedef unsigned int uint32;$/;"	t
-uint8	ext2_fs.h	/^typedef unsigned char uint8;$/;"	t
 uio	usertests.c	/^uio()$/;"	f
 uninit	usertests.c	/^char uninit[10000];$/;"	v
 unlinkread	usertests.c	/^unlinkread(void)$/;"	f
-use_lock	kalloc.c	/^  int use_lock;$/;"	m	struct:__anon7	file:
+use_lock	kalloc.c	/^  int use_lock;$/;"	m	struct:__anon15	file:
 userinit	proc.c	/^userinit(void)$/;"	f
 ushort	ext2_fs.h	/^typedef unsigned short ushort;$/;"	t
 ushort	types.h	/^typedef unsigned short ushort;$/;"	t
@@ -1340,9 +1412,9 @@ whitespace	sh.c	/^char whitespace[] = " \\t\\r\\n\\v";$/;"	v
 winode	mkfs.c	/^winode(uint inum, struct dinode *ip)$/;"	f
 writable	file.h	/^  char writable;$/;"	m	struct:file
 write	file.h	/^  int (*write)(struct inode*, char*, int);$/;"	m	struct:devsw
+writeI	file.h	/^	int             (*writeI)(struct inode*, char*, uint, uint);$/;"	m	struct:inode_operations
 write_head	log.c	/^write_head(void)$/;"	f	file:
 write_log	log.c	/^write_log(void)$/;"	f	file:
-writei	file.h	/^	int             (*writei)(struct inode*, char*, uint, uint);$/;"	m	struct:inode_operations
 writei	fs.c	/^writei(struct inode *ip, char *src, uint off, uint n)$/;"	f
 writeopen	pipe.c	/^  int writeopen;  \/\/ write fd is still open$/;"	m	struct:pipe	file:
 writetest	usertests.c	/^writetest(void)$/;"	f
